@@ -5,12 +5,12 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: pg
+  adapter: postgresql
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
 development:
-  adapter: postgresql
+  <<: *default
   database: opionorea_development
   pool: 5
 
