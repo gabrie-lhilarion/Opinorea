@@ -9,6 +9,7 @@ gem 'devise', '~> 4.7', '>= 4.7.3'
 # Use postgress database
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
+gem 'hirb'
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
@@ -58,3 +59,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'carrierwave', '~> 2.1'

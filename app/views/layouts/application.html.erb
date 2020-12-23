@@ -12,6 +12,69 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <div id="wrap"> 
+    <div class="left-aside"> 
+
+       <div id="profile"> 
+          <span> </span>
+          <h4> Gabriel Hilarion</h4>
+       </div> 
+
+       <div id="social_details"> 
+          <span id="following">348 <br/>
+            <i>following </i>
+          </span>
+          <span id="followers"> 334  <br/>
+            <i>followers </i>
+          </span>
+       </div>
+
+      <div id="side-links">
+        <ul> 
+          <li> <a href="#" class="active">Home </a> </li>
+          <li> <a href="#">Connect </a> </li>
+          <li> <a href="#">Discover </a> </li>
+          <li> <a href="#">Statistic </a> </li>
+        </ul>
+      </div>
+    </div> <!--end left-aside -->
+
+    <div class="right-main"> 
+
+    <div class="top-of-right-main">
+      <div id="top-icon-only"> 
+        <div class="logo-icon"> LOGO ICON</div>
+        <div class="action-icons">  
+          <span class="_icon"> icon </span>
+          <span class="_icon"> icon </span>
+          <span class="_icon"> icon </span>
+          <span class="_icon"> icon </span>
+        </div>
+      </div>
+
+      <div id="top-tab-navigation"> 
+        <ul> 
+          <li> <a href="#" class="active">Opinions</a></>
+          <li> <a href="#">Fotos</a></>
+          <li> <a href="#">Videos</a></>
+        </ul>
+        <div class="who-to-follow"> 
+          <p> who to follow </p>
+          <span> icon </span>
+        </div>
+      </div>
+    </div> <!--end top-of-right-main -->
+
+    <div id="body-of-right-main"> 
+        <div id="central"> 
+            <%= yield %> 
+        </div>
+        <div id="right"> RIGHT</div>
+    </div>
+
+    
+    </div> <!-- right main -->
+   
+    </div> <!-- wrap-->
   </body>
 </html>
