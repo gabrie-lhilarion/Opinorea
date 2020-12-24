@@ -400,10 +400,21 @@ flex-direction: row;
     flex-direction: row;
     margin-top: 15px;
 }
+
 #recent-opinions .for-image {
     height: 50px;
     width: 50px;
     background-color: #ccc;
     margin-right: 15px;
+}
+
+.person-time {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.recent-follower {
+    width: auto;
 }
 
