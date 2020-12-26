@@ -2,16 +2,21 @@
 <html>
   <head>
     <title>Opinorea</title>
+    <script src="https://kit.fontawesome.com/17579a901f.js" crossorigin="anonymous"></script>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+
+
+   <!-- 
+       <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+   -->
     <div id="wrap"> 
     <div class="left-aside"> 
 
@@ -21,21 +26,20 @@
        </div> 
 
        <div id="social_details"> 
-          <span id="following"> <em> 348  </em> <br/>
-            <i>following </i>
-          </span>
-          <span id="followers"> <em> 334 </em> <br/>
-            <i>followers </i>
-          </span>
+          <p id="following"> <em class="number"> 348  </em> <br/>
+            <em class="text">following </em>
+          </p>
+          <p id="followers"> <em class="number"> 334 </em> <br/>
+            <em class="text">followers </em>
+          </p>
        </div>
 
-      <div id="side-links">
+      <div id="side-links"> 
         <ul> 
-          <li> <a href="#" class="active home"> <img alt="home-icon" src="https://cdn.pixabay.com/photo/2013/07/12/12/56/home-146585_1280.png"/> </i> Home </a> </li>
-          <li> <a href="#">Connect </a> </li>
-          <li> <a href="#">Discover </a> </li>
-          <li> <a href="#">Statistic </a> </li>
-          <li> <a href="#">Sign out </a> </li>
+          <li><a href="#" class="active home"> <i class="fas fa-home"></i>  Home </a> </li>
+          <li> <a href="#"> <i class="fas fa-at"></i> Connect </a> </li>
+          <li> <a href="#"> <span> # </span> Discover </a> </li>
+          <li> <a href="#"> <i class="fas fa-chart-pie"></i> Statistic </a> </li>
         </ul>
       </div>
     </div> <!--end left-aside -->
@@ -45,28 +49,25 @@
     <div class="top-of-right-main">
       <div id="top-icon-only"> 
         <div class="logo-icon"> 
-          <span id="logo">LOGO</span>
+          <span id="logo"><i class="fas fa-comments fa-3x"></i></span>
         </div>
-        <div class="action-icons">  
-          <span class="_icon"> 
-          icon 
-          </span>
-          <span class="_icon"> icon </span>
-          <span class="_icon"> icon </span>
-          <span class="_icon"> icon </span>
+        <div class="action-icons"> 
+          <span id="non-mobile-icon" class="_icon"> <i class="fas fa-highlighter"></i> </span> 
+          <span id="non-mobile-icon" id="non-mobile-icon" class="_icon"> <i class="fas fa-envelope"></i> </span>
+          <span id="non-mobile-icon" class="_icon"> <i class="fas fa-search"></i>  </span>
+          <span id="non-mobile-icon" class="_icon"> <i class="fas fa-cog"></i> </span>
+          <span id="mobile-icon" class="_icon" > <i class="fas fa-menu"></i> </span>
         </div>
       </div>
 
       <div id="top-tab-navigation"> 
         <ul> 
-          <li> <a href="#" class="active">Opinions</a></>
-          <li> <a href="#">Fotos</a></>
-          <li> <a href="#">Videos</a></>
+          <li> <a href="#" class="active">Opinions</a></li>
         </ul>
         <div class="who-to-follow"> 
           <div>
             <p> who to follow </p>
-            <span> icon </span> 
+            <span> <i class="fas fa-retweet"></i>  </span> 
           </div>
         </div>
       </div>
@@ -77,13 +78,13 @@
             <%= yield %> 
         </div>
         <div id="right">
-          <ul> 
+          <ul class="persons-to-follow"> 
           
             <li> 
               <div class="round"> </div> 
               <div class="follower-info"> 
                 <h3> Edo Happiness</h3>
-                <p> Followed by Gabriel Silviera </p>
+                <p> Followed by <span>Gabriel Silviera </span>  </p>
               </div>
             </li>
 
@@ -91,7 +92,7 @@
               <div class="round"> </div> 
               <div  class="follower-info"> 
                 <h3> Edo Happiness</h3>
-                <p> Followed by Gabriel Silviera </p>
+                <p> Followed by <span>Gabriel Silviera </span> </p>
               </div>
             </li>
 
@@ -99,18 +100,20 @@
 
           <p class="popular light-blue"> Popular account  Find friends   </p>
           
-          <div class="other-right-content">  
+          <div class="other-right-content"> 
+
             <div id="trending">
               <p>Trending </p>
-              <span> icon</span>
-             </div>
+              <span> <i class="fas fa-cog"></i> </span>
+            </div>
 
-             <ul>
-             <li> #onearmy </li>
-             <li> #endsars </li>
-             <li> #globalism </li>
-             <li> #godthesupermaster </li>
-             </ul>
+            <ul>
+              <li> #onearmy </li>
+              <li> #endsars </li>
+              <li> #globalism </li>
+              <li> #godthesupermaster </li>
+            </ul>
+
           </div>
 
         </div>
