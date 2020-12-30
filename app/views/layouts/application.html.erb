@@ -5,13 +5,49 @@
     <script src="https://kit.fontawesome.com/17579a901f.js" crossorigin="anonymous"></script>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <div id="mobile-icon-slide-in"> 
+      <ul class="persons-to-follow"> 
+        <h3> WHO TO FOLLOW </h3>
+        <li> 
+          <div class="round"> </div> 
+          <div class="follower-info"> 
+            <h3> Edo Happiness</h3>
+            <p> Followed by <span>Gabriel Silviera </span>  </p>
+          </div>
+        </li>
 
+          <li> 
+          <div class="round"> </div> 
+          <div  class="follower-info"> 
+            <h3> Edo Happiness</h3>
+            <p> Followed by <span>Gabriel Silviera </span> </p>
+          </div>
+        </li>
+      </ul>
+
+       <ul>
+          <h3>  TRENDING </h3>
+          <li> #onearmy </li>
+          <li> #endsars </li>
+          <li> #globalism </li>
+          <li> #godthesupermaster </li>
+          <li> #onearmy </li>
+          <li> #endsars </li>
+          <li> #globalism </li>
+          <li> #godthesupermaster </li>
+       </ul>
+
+      <ul> 
+        <h5>MAIN MENU</h5>
+        <li>Home </li>
+        <li>Connect </li>
+        <li>Discover </li>
+        <li>Statistic </li>
+      </ul>
+    </div>
 
    <!-- 
        <p class="notice"><%= notice %></p>
@@ -56,7 +92,7 @@
           <span id="non-mobile-icon" id="non-mobile-icon" class="_icon"> <i class="fas fa-envelope"></i> </span>
           <span id="non-mobile-icon" class="_icon"> <i class="fas fa-search"></i>  </span>
           <span id="non-mobile-icon" class="_icon"> <i class="fas fa-cog"></i> </span>
-          <span id="mobile-icon" class="_icon" > <i class="fas fa-menu"></i> </span>
+          <span id="mobile-icon" class="_icon toggle" > <i id="fa-menu" class="fas fa-bars"></i> </span>
         </div>
       </div>
 
@@ -123,5 +159,7 @@
     </div> <!-- right main -->
    
     </div> <!-- wrap-->
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>

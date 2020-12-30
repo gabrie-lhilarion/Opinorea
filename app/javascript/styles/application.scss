@@ -1,7 +1,12 @@
 @import "~bootstrap/scss/bootstrap.scss";
+
 * {
     margin: 0;
     padding: 0;
+}
+
+#mobile-icon-slide-in {
+    display: none;
 }
 
 .light-blue {
@@ -122,13 +127,22 @@
     width: 60px;
     height: 55px;
     margin-left: 35px;
-    background-color: blanchedalmond;
 }
 
 .action-icons {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+}
+
+#mobile-icon-slide-in {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    overflow-y: auto;
+    overflow-x: hidden;
+    top: 60px;
+    right: 0px;
 }
 
 .action-icons ._icon {
@@ -139,7 +153,6 @@
     line-height: 55px;
     text-align: center;
     font-size: 1.3em;
-    background-color: blanchedalmond;
 }
 
 #top-tab-navigation {
@@ -579,4 +592,9 @@
     #logo {
         margin-left: 5px;
     }
+
+    .show {
+        display: block;
+    } 
+
 }
