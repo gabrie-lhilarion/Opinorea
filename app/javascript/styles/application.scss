@@ -287,8 +287,14 @@
 
 #profile h4 {
     color: #ccc;
-    line-height: 45px;
+    line-height: 17px;
     font-size: 1em;
+}
+
+#profile h4 a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.8em;
 }
 
 #social_details p {

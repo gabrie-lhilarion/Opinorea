@@ -58,7 +58,9 @@
 
        <div id="profile"> 
           <span> </span>
-          <h4> Gabriel Hilarion</h4>
+          <h4> Gabriel Hilarion </br>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+          </h4> 
        </div> 
 
        <div id="social_details"> 
@@ -107,10 +109,14 @@
           </div>
         </div>
       </div>
-    </div> <!--end top-of-right-main -->
+    </div> <!-- end top-of-right-main -->
 
     <div id="body-of-right-main"> 
-        <div id="central"> 
+        <div id="central">
+          <!-- 
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p> 
+          -->
             <%= yield %> 
         </div>
         <div id="right">
