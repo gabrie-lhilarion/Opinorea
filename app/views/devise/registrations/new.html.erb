@@ -4,8 +4,12 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
+    <div class="field">
+    <%= f.text_field :fullname, placeholder: " enter fullname", class: "top-raduis"%>
+  </div>
+
   <div class="field">
-    <%= f.text_field :username, placeholder: " enter a username", class: "top-raduis"%>
+    <%= f.text_field :username, placeholder: " enter a username"%>
   </div>
 
   <div class="field">
