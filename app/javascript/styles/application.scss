@@ -55,6 +55,21 @@
     background-color: #fff;;
 }
 
+.field p {
+    width: 100%;
+    margin: auto;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    box-sizing: border-box;
+    border: solid 1px #ccc;
+    background-color: #fff;;
+}
+
+.field p span {
+    color: #666;
+    display: inline-block;
+}
+
 .sessions_page .top-raduis {
     border-bottom: none;
     border-radius: 9px 9px 0 0;
@@ -361,7 +376,8 @@
     list-style: none;
 }
 
-#right div.round { 
+#right div.round,
+#right div.round img { 
     display: block;
     width: 55px;
     height: 55px;
@@ -380,6 +396,10 @@
 
 #right div.follower-info p {
     font-size: 0.9em; 
+}
+
+#right div.follower-info a {
+    text-decoration: none; 
 }
 
 #right div.follower-info p span {
@@ -437,7 +457,7 @@
     border-radius: 3px;
 }
 
-#new-post button {
+#blue-btn {
     border: none;
     background-color:rgb(64, 176, 228);
     display: inline-block;

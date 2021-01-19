@@ -1,0 +1,11 @@
+<% @tofollow.each do |x| %>
+    <% if x.id != current_user.id %>  
+        <li> 
+            <div class="round"> <%= image_tag User.find(x.id).photo %> </div> 
+            <div  class="follower-info"> 
+                <h3> <%= link_to x.fullname, user_path(x)%> </h3>
+                <p> Followed by <span> <%= "#{ Following.first_follower(x.id).nil? ? 'nobody yet' : 'somebody'}"%> </span> </p>
+            </div>
+        </li>
+    <% end %> 
+<% end %>

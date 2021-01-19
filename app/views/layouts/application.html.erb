@@ -58,7 +58,7 @@
 
        <div id="profile"> 
           <span> </span>
-          <h4> Gabriel Hilarion </br>
+          <h4> <%= current_user.fullname %> </br>
             <%= link_to "Logout", destroy_user_session_path, method: :delete %>
           </h4> 
        </div> 
@@ -119,25 +119,9 @@
           -->
             <%= yield %> 
         </div>
-        <div id="right">
+        <div id="right"> 
           <ul class="persons-to-follow"> 
-          
-            <li> 
-              <div class="round"> </div> 
-              <div class="follower-info"> 
-                <h3> Edo Happiness</h3>
-                <p> Followed by <span>Gabriel Silviera </span>  </p>
-              </div>
-            </li>
-
-             <li> 
-              <div class="round"> </div> 
-              <div  class="follower-info"> 
-                <h3> Edo Happiness</h3>
-                <p> Followed by <span>Gabriel Silviera </span> </p>
-              </div>
-            </li>
-
+            <%= render "tofollow" %>
           </ul>
 
           <p class="popular light-blue"> Popular account  Find friends   </p>

@@ -1,0 +1,19 @@
+<div id="timeline">
+
+<div id="new-post"> 
+<p class="notice"><%= notice %></p>
+<%= form_for @opinion do |f| %>
+<span> Say something<span> 
+<%= f.text_field :comment, placeholder: 'compose a new opinion'  %>
+<%= f.submit "SUBMIT", id: 'blue-btn'%>
+<% end %>
+
+
+</div>
+<div id="recent-opinions"> 
+    <h4> 4 NEW OPINIONS  </i> </h4>
+    <ul class="opinions-list"> 
+        <%= render @recentopinion %>
+    </ul>
+</div>
+</div>
