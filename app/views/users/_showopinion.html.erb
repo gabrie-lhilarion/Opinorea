@@ -1,3 +1,5 @@
+<% @recentopinion.each do |opinion| %>
+
 <li> 
      <div class="for-image"> <%= image_tag opinion.user.photo, style: "width: 50px; height: 50px" %> </div>
      <div class="recent-follower">
@@ -6,5 +8,7 @@
                 <span class="opionion-time"> <%= opinion.created_at.strftime("%b %d, %I:%M %p") %></span> 
           </div>
           <div>  <%= opinion.comment %> </div>
-     </div>
+     </div>    
 </li>
+
+<% end %>

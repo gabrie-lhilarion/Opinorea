@@ -48,23 +48,19 @@
         <li>Statistic </li>
       </ul>
     </div>
-
-   <!-- 
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-   -->
+   
     <div id="wrap"> 
     <div class="left-aside"> 
 
        <div id="profile"> 
-           <span> <%= image_tag current_user.photo %> </span>
+          <span> <%= image_tag current_user.photo %> </span>
           <h4> <%= current_user.fullname %> </br>
             <%= link_to "Logout", destroy_user_session_path, method: :delete %>
           </h4> 
        </div> 
 
        <div id="social_details"> 
-           <p id="following"> <em class="number"> <%= Following.following(current_user.id).count %>  </em> <br/>
+          <p id="following"> <em class="number"> <%= Following.following(current_user.id).count %>  </em> <br/>
             <em class="text">following </em>
           </p>
           <p id="followers"> <em class="number"> <%= Following.followers(current_user.id).count %> </em> <br/>
@@ -83,7 +79,7 @@
     </div> <!--end left-aside -->
 
     <div class="right-main"> 
-
+    
     <div class="top-of-right-main">
       <div id="top-icon-only"> 
         <div class="logo-icon"> 
@@ -97,15 +93,50 @@
           <span id="mobile-icon" class="_icon toggle" > <i id="fa-menu" class="fas fa-bars"></i> </span>
         </div>
       </div>
-
+      <div id="personal-profile-area">
+        <div id="banner"> <%= image_tag @profile.cover_image %> </div>
+        <div id="profile-image"> 
+            <div id="profile-image-top"> 
+                <div id="profile-menu-left"> 
+                  <span class="circle"> 
+                    <%= Following.is_a_follower?(@profile.id, current_user.id) ?  
+                      (link_to '-', unfollow_path(Following.following_record(@profile.id, current_user.id)), 
+                      class: "follow_person", title: "unfollow #{@profile.fullname}" ) :
+                      (link_to '+', follow_path(@profile.id), class: "follow_person", title: "follow #{@profile.fullname}") 
+                    %> 
+                  </span>
+                </div>
+                <div id="display-picture"> <%= image_tag @profile.photo %> </div> 
+                <div id="profile-menu-right"> <span class="circle"> <i class="fas fa-bars"></i> </span> </div>
+            </div>
+            <div id="profile-image-middle"> 
+                <h4> <%= @profile.fullname%> </h4>
+                <p> <%= "@#{@profile.username}" %> </p>
+            </div>
+            <div id="profile-image-bottom">
+                <div id="profile-tweet">
+                    <h4> <%= Opinion.user_opinions(@profile.id).count %> </h4>
+                    <span> Opinions </span>
+                </div>
+                <div id="display-following"> 
+                    <h4> <%= Following.following(@profile.id).count %>  </h4>
+                    <span> Following </span> 
+                </div> 
+                <div id="profile-follower"> 
+                    <h4> <%= Following.followers(@profile.id).count %> </h4>
+                    <span>  <%= Following.followers(@profile.id).count > 1 ? "Followers" : "Follower" %> </span>
+                </div>
+            </div>
+        </div>
+      </div>
       <div id="top-tab-navigation"> 
         <ul> 
           <li> <a href="#" class="active">Opinions</a></li>
         </ul>
         <div class="who-to-follow"> 
           <div>
-            <p> who to follow </p>
-            <span> <i class="fas fa-retweet"></i>  </span> 
+            <p> Followed by <%= @followed_by.count.positive? ? pluralize(@followed_by.count, "user") : "NOBODY " %> </p>
+            <span> </span> 
           </div>
         </div>
       </div>
@@ -121,7 +152,7 @@
         </div>
         <div id="right"> 
           <ul class="persons-to-follow"> 
-            <%= render "tofollow" %>
+            <%= render "followedby" %>
           </ul>
 
           <p class="popular light-blue"> Popular account  Find friends   </p>

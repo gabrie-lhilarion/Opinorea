@@ -1,5 +1,5 @@
 (() => {
-
+    
       if(window.location != 'http://localhost:3000/users/sign_up' && window.location != 'http://localhost:3000/users/sign_in') {
             const action_button = document.querySelector('.action-icons'); 
             const mobile_icon_slide_in = document.getElementById('mobile-icon-slide-in');
@@ -31,4 +31,5 @@
             window.addEventListener('resize', hide_Slidein_Menu);
       }
 
+          
  })();

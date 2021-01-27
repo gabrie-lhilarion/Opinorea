@@ -1,0 +1,16 @@
+<% @followed_by.each do |follower| %>
+      
+        <li> 
+            <div class="round"> <%= image_tag User.find(follower.follower_id).photo %> </div> 
+            <div  class="follower-info"> 
+                <h3> 
+                    <%=  me_or_another(follower, current_user) %> 
+                </h3>
+                <p> <span> <%= "@#{User.find(follower.follower_id).username}" %> </span> </p>
+            </div> 
+            <div class="unfollow-link-container">  
+                <%= follow_or_unfollow(follower, current_user)  %> 
+            </div>
+        </li> 
+    
+<% end %>

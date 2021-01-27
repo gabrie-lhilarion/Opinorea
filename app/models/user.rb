@@ -3,27 +3,34 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable, :validatable, :rememberable
   validates_presence_of :fullname, :photo, :cover_image
-  validates_uniqueness_of :email, :username, case_sensitive: false 
+  validates_uniqueness_of :email, :username, case_sensitive: false
   validates_associated :opinions, :followings
-  
-  has_many :opinions, dependent: :destroy 
+
+  has_many :opinions, dependent: :destroy
   has_many :followings, dependent: :destroy
-  
+
   has_one_attached :photo
-  has_one_attached :cover_image  
+  has_one_attached :cover_image
 
-  def recent_conversations
-    ids = followings.select(:id).ids
-    ids << id
-    Opinion.recent(ids)
+  def self.recent_conversations(user)
+    ids = []
+    followers = Following.select(:follower_id).where(user_id: user)
+    followers.each { |follower| ids << follower.follower_id }
+    ids << user
+    Opinion.where(user_id: ids)
   end
 
-  def who_to_follow
-    ids = followings.ids 
-    User.not_following(ids)
+  def self.recent_opinions(user) 
+    Opinion.where(user_id: user)
   end
-  
-  scope :ordered_users, -> { order(created_at: :desc) }
-  scope :user_and_following, ->(ids) { where(id: ids) }
+
+  def self.followed_by(user)
+    User.find(user).followings.where.not(follower_id: user).order(created_at: :desc)
+  end
+
+  def self.who_to_follow(user)
+    User.where.not(id: user).ids
+  end
+
   scope :not_following, ->(ids) { where.not(id: ids) }
 end
