@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable, :validatable, :rememberable
-  validates_presence_of :fullname, :photo, :cover_image
+  validates_presence_of :fullname, :email, :username
   validates_uniqueness_of :email, :username, case_sensitive: false
   validates_associated :opinions, :followings
 
@@ -13,10 +13,9 @@ class User < ApplicationRecord
   has_one_attached :cover_image
 
   def self.recent_conversations(user)
-    ids = []
+    ids = [user]
     followers = Following.select(:follower_id).where(user_id: user)
     followers.each { |follower| ids << follower.follower_id }
-    ids << user
     Opinion.where(user_id: ids)
   end
 
