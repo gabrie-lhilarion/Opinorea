@@ -1,25 +1,50 @@
 require 'rails_helper'
 
 RSpec.describe Opinion, type: :model do
-  context 'Comments Validations, Maximum size, length and presence' do
-    let(:user) { User.create(fullname: 'Gabriel Hilarion', username: 'Gabdehilas', email: 'gabriel@gmail.com', password: '123456', photo: 'myphoto.png', cover_image: 'my_cover.png') }
-    let(:opinion) { Opinion.create(user_id: user.id, content: 'This is my first post') }
+  it "is a valid factory" do
+    user = create(:user)
+    opinion = build(:opinion, user: user)
+    expect(opinion).to be_valid 
+  end
 
-    subject { opinion.build(user_id: user.id, comment: 'Hey, yeah, nice post ') }
+  context "Active record association" do
+    it "belongs to user" do 
+      expect(Opinion.reflect_on_association(:user).macro).to be(:belongs_to)
+    end
+  end
 
-    it 'Maximun size of content is 101' do
-      expect(subject).to be_valid
+  context "Active record validation" do 
+
+    it "is invalid without a comment" do  
+      user = create(:user)
+      opinion = build(:opinion, comment: nil, user: user)
+      expect(opinion).to_not be_valid 
     end
 
-    it { expect(subject).to validate_presence_of(:content) }
+    it "is not allowed to have a comment of more than 50 characters" do  
+      user = create(:user)
+      opinion = build(:opinion, comment: 'This a comment and this comment has more than fifty characters', user: user)
+      opinion.valid?
+      expect(opinion.errors[:comment]).to include("Message can not be empty and should be less than 50 characters") 
+    end
 
-    it {
-      expect(subject).to validate_length_of(:content).is_at_most(101)
-        .with_message(/200 characters in comment is the maximum allowed./)
-    }
+    it "is invalid without a registered user" do  
+      opinion = build(:opinion, user: nil)
+      expect(opinion).to_not be_valid 
+    end
+
   end
 
-  context 'Association' do
-    it { expect(subject).to belong_to(:user) } 
+  describe "#user_opinion" do 
+    it "displays opinions a the user whose id is provided" do 
+      user = create(:user)
+      opinion1 = build(:opinion, comment: 'This is my comment', user: user)
+      opinion1.save
+      opinion2 = build(:opinion, comment: 'This is my second comment', user: user)
+      opinion2.save
+      expect(Opinion.user_opinions(user.id).first.comment).to eq('This is my comment')
+      expect(Opinion.user_opinions(user.id)[1].comment).to eq('This is my second comment') 
+    end
   end
+
 end
