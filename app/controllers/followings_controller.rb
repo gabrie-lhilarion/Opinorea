@@ -15,8 +15,7 @@ class FollowingsController < ApplicationController
   end
 
   def destroy
-    @follower = Following.find(params[:id])
-    # @follower_name = @follower.follower_name
+    @follower = Following.find(params[:id]) 
     id = @follower.user_id
     followed = User.find(id).fullname
     if @follower.destroy
