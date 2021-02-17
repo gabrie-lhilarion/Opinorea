@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
   has_many :opinions, dependent: :destroy
   has_many :followings, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :dislikes, dependent: :destroy
 
   has_one_attached :photo
   has_one_attached :cover_image

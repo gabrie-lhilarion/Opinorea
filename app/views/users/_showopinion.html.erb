@@ -7,7 +7,16 @@
                 <h5> <%= opinion.user.fullname %></h5>  
                 <span class="opionion-time"> <%= opinion.created_at.strftime("%b %d, %I:%M %p") %></span> 
           </div>
-          <div>  <%= opinion.comment %> </div>
+          <div>  
+               <p>
+                    <%= opinion.comment %> 
+               </p> 
+               <p class="interactions">  
+                    <span> <i> Replies </i>  <em> <%= opinion.replies.count %>  </em> </span>
+                    <span> <i> <%= link_to 'Likes', like_path(opinion.id, current_user.id), {method: :post, title: "click to like opinion"}  %> </i>  <em> <%= opinion.likes.count %>  </em> </span>
+                    <span> <i> <%= link_to 'Dislikes', dislike_path(opinion.id, current_user.id), {method: :post, title: "click to dislike opinion"}  %> </i> <em> <%= opinion.dislikes.count %> </em> </span>
+               </p>
+          </div>
      </div>    
 </li>
 

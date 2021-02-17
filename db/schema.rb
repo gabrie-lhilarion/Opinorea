@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_16_072622) do
+ActiveRecord::Schema.define(version: 2021_02_16_150559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,15 @@ ActiveRecord::Schema.define(version: 2021_02_16_072622) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "dislikes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "opinion_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["opinion_id"], name: "index_dislikes_on_opinion_id"
+    t.index ["user_id"], name: "index_dislikes_on_user_id"
+  end
+
   create_table "followings", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -46,7 +55,6 @@ ActiveRecord::Schema.define(version: 2021_02_16_072622) do
   end
 
   create_table "likes", force: :cascade do |t|
-    t.string "content"
     t.bigint "user_id", null: false
     t.bigint "opinion_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -61,6 +69,16 @@ ActiveRecord::Schema.define(version: 2021_02_16_072622) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_opinions_on_user_id"
+  end
+
+  create_table "replies", force: :cascade do |t|
+    t.string "content"
+    t.bigint "user_id", null: false
+    t.bigint "opinion_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["opinion_id"], name: "index_replies_on_opinion_id"
+    t.index ["user_id"], name: "index_replies_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -78,8 +96,12 @@ ActiveRecord::Schema.define(version: 2021_02_16_072622) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "dislikes", "opinions"
+  add_foreign_key "dislikes", "users"
   add_foreign_key "followings", "users"
   add_foreign_key "likes", "opinions"
   add_foreign_key "likes", "users"
   add_foreign_key "opinions", "users"
+  add_foreign_key "replies", "opinions"
+  add_foreign_key "replies", "users"
 end
