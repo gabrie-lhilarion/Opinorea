@@ -30,6 +30,33 @@
       
             window.addEventListener('resize', hide_Slidein_Menu);
       }
+      
+      const reply_link = document.querySelectorAll('.reply_now');
+      
+      const showDetails = (y) => {
+            if (document.getElementById('reply_form')) document.getElementById('reply_form').remove()
+            const form_element = document.createElement('form')
+            form_element.setAttribute('action', `/reply/${y.target.id}`)
+            form_element.setAttribute('id', 'reply_form')
 
-          
+            const input = document.createElement('input')
+            input.setAttribute('placeholder', ' ..type your reply')
+            form_element.appendChild(input)
+
+            const btn = document.createElement('button')
+            btn.textContent = 'Submit reply'
+
+            const div = document.createElement('div')
+            const mystyles = {'display' : 'flex', 'justify-content' : 'flex-end'}
+            Object.assign(div.style, mystyles)
+            div.appendChild(btn)
+
+            form_element.appendChild(div)
+            y.target.parentElement.appendChild(form_element)
+      }
+
+      reply_link.forEach(
+             (x) => x.addEventListener('click', showDetails)
+      ); 
+
  })();

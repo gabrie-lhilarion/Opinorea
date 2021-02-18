@@ -673,7 +673,6 @@
     color: #888;
 }
 
-
 .interactions span {
     background-color: rgb(214, 238, 247);
     border-radius: 7px;
@@ -694,6 +693,38 @@
 .interactions em { 
     font-size: 0.8em;
     color: rgb(46, 45, 45);
+}
+
+.reply_now {
+    display: block;
+    color: #0d6efd;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.reply_now:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.recent-follower form {
+    width: 100%;
+}
+
+.recent-follower form input {
+    display: block;
+    padding-left: 20px;
+    width: 100%;
+}
+
+.recent-follower form button { 
+    background-color: #0d6efd;
+    border: none;
+    color: #fff;
+    padding: 3px;
+    font-size: 0.7em;
+    margin-top: 3px;
+    border-radius: 4px;
 }
 
 @media only screen and (min-width: 1366px) {

@@ -10,8 +10,12 @@
           <div>  
                <p>
                     <%= opinion.comment %> 
+                    <span class="reply_now" <%= "id=#{opinion.id}/#{current_user.id}" %> > Reply </span>
+                    
                </p> 
-               <p class="interactions">  
+               
+               <p class="interactions"> 
+                    
                     <span> <i> Replies </i>  <em> <%= opinion.replies.count %>  </em> </span>
                     <span> <i> <%= link_to 'Likes', like_path(opinion.id, current_user.id), {method: :post, title: "click to like opinion"}  %> </i>  <em> <%= opinion.likes.count %>  </em> </span>
                     <span> <i> <%= link_to 'Dislikes', dislike_path(opinion.id, current_user.id), {method: :post, title: "click to dislike opinion"}  %> </i> <em> <%= opinion.dislikes.count %> </em> </span>
