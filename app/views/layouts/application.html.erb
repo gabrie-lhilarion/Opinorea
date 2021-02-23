@@ -49,10 +49,7 @@
       </ul>
     </div>
 
-   <!-- 
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-   -->
+    <%= "<div class=\"notice\" id=\"my_notice\"> <p> #{notice} </p> <span class=\"close_notice\"> close </span> </div>".html_safe if notice %>    
     <div id="wrap"> 
     <div class="left-aside"> 
 
@@ -149,6 +146,31 @@
     </div> <!-- right main -->
    
     </div> <!-- wrap-->
+    <!-- start modal-->
+    <div id="myModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal-title"> Modal title </h5>
+            <button type="button" class="close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="clone_wrap"> </div>
+            <p>
+              <%= render 'replies/form' %>
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" id="send-reply">Send reply</button>
+            <button type="button" class="btn btn-secondary close_2" data-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end modal-->
+
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>

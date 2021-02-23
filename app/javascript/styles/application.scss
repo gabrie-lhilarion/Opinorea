@@ -727,6 +727,64 @@
     border-radius: 4px;
 }
 
+#my_notice {
+    background-color: forestgreen;
+    color: #fff;
+    border-radius: 20px;
+    box-shadow: grey 0, 15, 5;
+    display: flex;
+    height: 40px;
+    line-height: 40px;
+    justify-content: space-between;
+    margin: auto;
+    padding-left: 12px;
+    position: fixed;
+    text-align: center;
+    top: 30px;
+    width: 80%;
+}
+
+#my_notice span {
+    background-color: #132d47;
+    border-radius: 20px;
+    cursor: pointer;
+    padding: 0 4px;
+}
+
+#myModal {
+    background-color: hsla( 120, 100, 100, 0.8 );
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 110%;
+}
+
+#myModal .close {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border-color: #0d6efd;
+    background-color: #0d6efd;
+    color: #fff;
+}
+
+#myModal span {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border-color: #0d6efd;
+    background-color: #0d6efd;
+    color: #fff;
+}
+
+#clone_wrap .input[type=text] {
+    width: 89%;
+    display: block;
+    margin: auto;  
+}
+
 @media only screen and (min-width: 1366px) {
     body {
       max-width: 1366px;
