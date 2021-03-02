@@ -4,15 +4,17 @@ class RepliesController < ApplicationController
   end
 
   def create 
-    reply = current_user.replies.build( content: params[:content], opinion_id: params[:opinion] )
-    
-    respend_to  do |format| 
-      if reply.save
-        format.js {render layout: false}
-        format.html { render 'index'}
+    @reply = current_user.replies.build( content: params[:content], opinion_id: params[:opinion] )
+    respond_to  do |format| 
+      if @reply.save
+        format.html { redirect_to @reply, notice: 'Reply was succefully created' }
+        format.json { render json: @reply, status: :created }
+        format.js 
+
       else
-        format.js {render layout: false}
-        format.html { render 'index' }
+        format.html {  redirect_to @reply, notice: 'Reply sending failed' }
+        format.json {  render json: @reply.errors, status: :unprocessable_entity } 
+       
       end
     end
 

@@ -69,7 +69,7 @@
                         const cloned_view = `<div class=\"cloned\">
                                                 <div id=\"person-image\"> image </div> 
                                                 <div> ${comment} </div> 
-                                           </div>`
+                                            </div>`
                         document.getElementById('clone_wrap').innerHTML = cloned_view
                         Object.assign(document.getElementById('reply_content').style, {'display': 'block', 'width': '100%', 'border': 'solid 1px #ccc', 'margin-bottom': '12px'  });
                         Object.assign(document.querySelector('.cloned').style, {'display': 'flex' });
@@ -88,11 +88,40 @@
                         user_id_input.id = 'user_id';
                         user_id_input.setAttribute('name', 'user');
                         my_form.appendChild(user_id_input);
+                        user_id_input.insertAdjacentHTML('afterend', '<div id=\"action-notification\"></div>')
                         }
                   );
-            }); // link for each
-           const send_reply_btn = document.getElementById('send-reply');
+            }); // end of link for each
+            my_form.addEventListener("ajax:success", (event) => {
+                  let notification_div = document.getElementById('action-notification')
+                  const [_data, _status, xhr] = event.detail;
+                  let opinionId = document.getElementById('opinion_id').value
+                  element_to_update = document.getElementById(`opinion_${opinionId}_reply_count`)
+                  inintial_replies = parseInt(element_to_update.textContent)
+                  element_to_update.textContent = inintial_replies + 1
+                  const fade_out_bg = (x, y) => { 
+
+                  }
+            });
            
-           alert( $('send-reply').text);
+            my_form.addEventListener("ajax:error", (event) => {
+                  let notification_div = document.getElementById('action-notification')
+                  const error_messages = []
+                  const reply_content = document.getElementById('reply_content').value.replace(/ /g, '') 
+                  reply_content.length < 1 ? error_messages.push('Reply is too shot or empty') : null
+                  reply_content.length > 50 ? error_messages.push('Reply is longer tha 50 character') : null 
+
+                  document.getElementById('reply_content').value = ' '
+                  if( error_messages.length > 0 ){ error_messages.forEach(  (x) => { 
+                        const each_error = document.createElement('p')
+                        each_error.textContent = `1. ${x}`
+                        Object.assign(each_error.style, {'color': 'red', 'text-align': 'right'})
+                        notification_div.appendChild(each_error);
+                        setTimeout(() => {
+                              notification_div.querySelectorAll('p').forEach( (x) => { x.remove()} )  
+                        }, 3000);
+                     }) 
+                  }
+            });
       
  };
