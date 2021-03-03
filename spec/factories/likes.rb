@@ -1,6 +1,5 @@
 FactoryBot.define do
-  factory :like do
-    content { "MyString" }
+  factory :like do 
     user { nil }
     opinion { nil }
   end
