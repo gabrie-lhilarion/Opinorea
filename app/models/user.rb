@@ -22,7 +22,7 @@ class User < ApplicationRecord
     Opinion.where(user_id: ids)
   end
 
-  def self.recent_opinions(user) 
+  def self.recent_opinions(user)
     Opinion.where(user_id: user)
   end
 

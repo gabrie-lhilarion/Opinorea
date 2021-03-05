@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :user do
-    username {  Faker::Name.name }
+    username { Faker::Name.name }
     fullname { Faker::Name.name }
-    password { 'mypass' }  
-    email { Faker::Internet.safe_email } 
+    password { 'mypass' }
+    email { Faker::Internet.safe_email }
 
     factory :user_with_photo do
       photo { File.new("#{Rails.root}/spec/factories/photo.JPG") }

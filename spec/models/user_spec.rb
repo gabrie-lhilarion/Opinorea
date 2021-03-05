@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-
-  it "has a valid factory" do 
+  it "has a valid factory" do
     expect(build(:user)).to be_valid
   end
 
@@ -27,14 +26,13 @@ RSpec.describe User, type: :model do
   end
 
   context 'ActiveRecord associations' do
-
-    it "is invalid for inavlid associated opinion" do  
+    it "is invalid for inavlid associated opinion" do
       user = create(:user)
       opinion = user.opinions.build(comment: nil)
       expect(opinion).to_not be_valid
     end
 
-    it "is valid for valid associated opinion" do  
+    it "is valid for valid associated opinion" do
       user = create(:user)
       opinion = user.opinions.build(comment: 'This is my honest comment, you know!')
       expect(opinion).to be_valid
@@ -47,7 +45,5 @@ RSpec.describe User, type: :model do
     it 'has many followings' do
       expect(User.reflect_on_association(:followings).macro).to be(:has_many)
     end
-
   end
-
 end
