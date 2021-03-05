@@ -92,7 +92,6 @@
                   );
             }); // link for each
            const send_reply_btn = document.getElementById('send-reply');
-           
-           alert( $('send-reply').text);
+        
       
  };
