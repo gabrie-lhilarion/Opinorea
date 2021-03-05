@@ -18,13 +18,28 @@ describe "user interaction", type: :feature do
 
     end
     
-    scenario 'log_in valid' do
+    scenario 'valid login' do
         expect(page).to have_content("Welcome")
     end 
     
     scenario "post opinion" do
-        fill_in 'opinion_comment', with: 'This a great opinion' 
+        fill_in 'opinion_comment', with: 'This is a great opinion' 
         click_button 'SUBMIT'
         expect(page).to have_content("Opinion was successfully created.")
     end
+
+    scenario "like a post" do
+        fill_in 'opinion_comment', with: 'This is another great opinion' 
+        click_button 'SUBMIT'
+        expect(page).to have_content("Opinion was successfully created.")
+
+        within('.interactions') do
+            find("a[title='click to like opinion']").click
+            expect(page).to have_content("Likes 1")
+        end
+        
+        find("a[title='click to dislike opinion']").click
+        expect(page).to have_content("Failed, you can't dislike twice! and you can't like and dislike at once")
+    end
+
 end
