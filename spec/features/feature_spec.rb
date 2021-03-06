@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "user interaction", type: :feature do
+describe 'user interaction', type: :feature do
   before do
     visit '/users/sign_up'
     within("#new_user") do
@@ -20,16 +20,16 @@ describe "user interaction", type: :feature do
     expect(page).to have_content("Welcome")
   end
 
-  scenario "post opinion" do
+  scenario 'post opinion' do
     fill_in 'opinion_comment', with: 'This is a great opinion'
     click_button 'SUBMIT'
     expect(page).to have_content("Opinion was successfully created.")
   end
 
-  scenario "like a post" do
+  scenario 'like a post' do
     fill_in 'opinion_comment', with: 'This is another great opinion'
     click_button 'SUBMIT'
-    expect(page).to have_content("Opinion was successfully created.")
+    expect(page).to have_content('Opinion was successfully created.')
 
     within('.interactions') do
       find("a[title='click to like opinion']").click

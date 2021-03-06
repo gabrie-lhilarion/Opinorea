@@ -1,15 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe Following, type: :model do
-  context "Active Record Validation" do
+  context 'Active Record Validation' do
     it "belongs to user" do
       expect(Following.reflect_on_association(:user).macro).to be(:belongs_to)
     end
   end
 
-  describe "Instance methods" do
-    context "#first follower" do
-      it "it displays the first follower of a user if any" do
+  describe 'Instance methods' do
+    context '#first follower' do
+      it 'it displays the first follower of a user if any' do
         user_1 = create(:user)
         user_2 = create(:user)
         user_3 = create(:user)
@@ -23,8 +23,8 @@ RSpec.describe Following, type: :model do
       end
     end
 
-    context "#followers" do
-      it "lists followers of a giving user for counting" do
+    context '#followers' do
+      it 'lists followers of a giving user for counting' do
         user_1 = create(:user)
         user_2 = create(:user)
         user_3 = create(:user)
@@ -42,8 +42,8 @@ RSpec.describe Following, type: :model do
       end
     end
 
-    context "#following" do
-      it "retrieves a user's followings for counting" do
+    context '#following' do
+      it 'retrieves a user\'s followings for counting' do
         user_1 = create(:user)
         user_2 = create(:user)
         user_3 = create(:user)
@@ -59,8 +59,8 @@ RSpec.describe Following, type: :model do
       end
     end
 
-    context "#not_followers" do
-      it "check if a user is not a followers of another" do
+    context '#not_followers' do
+      it 'check if a user is not a followers of another' do
         user_1 = create(:user)
         user_2 = create(:user)
         user_3 = create(:user)
@@ -76,8 +76,8 @@ RSpec.describe Following, type: :model do
       end
     end
 
-    context "#is_a_followers" do
-      it "check if a user is a followers of another" do
+    context '#is_a_followers' do
+      it 'check if a user is a followers of another' do
         user_1 = create(:user)
         user_2 = create(:user)
         user_3 = create(:user)
@@ -92,8 +92,8 @@ RSpec.describe Following, type: :model do
       end
     end
 
-    context "#following_record" do
-      it "produces the id of a follower" do
+    context '#following_record' do
+      it 'produces the id of a follower' do
         user_1 = create(:user)
         user_2 = create(:user)
         user_3 = create(:user)
