@@ -22,8 +22,8 @@ class DislikesController < ApplicationController
     if not_disliked_and_not_liked?
       likes.save
       redirect_to root_path, notice: 'Disike was successful.'
-    else
-      redirect_to root_path, notice: 'Failed, either like or dislike' if disliked_or_is_liked?
+    elsif disliked_or_is_liked?
+      redirect_to root_path, notice: 'Failed, either like or dislike'
     end
   end
 end

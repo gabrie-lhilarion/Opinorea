@@ -28,7 +28,7 @@ RSpec.describe Reply, type: :model do
     end
 
     it 'is invalid with content more than 50 characters' do
-      reply = build(:reply, content: 'This content here is more than fifthy characters long', user: @user, opinion: @opinion)
+      reply = build(:reply, content: 'This content is more than thirty characters', user: @user, opinion: @opinion)
       expect(reply).not_to be_valid
     end
   end

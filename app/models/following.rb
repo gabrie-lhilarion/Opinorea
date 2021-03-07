@@ -18,7 +18,7 @@ class Following < ApplicationRecord
     count.zero?
   end
 
-  def self.is_a_follower?(followed, follower)
+  def self.a_follower?(followed, follower)
     count = where(user_id: followed, follower_id: follower).count
     count.positive?
   end
