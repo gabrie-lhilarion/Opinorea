@@ -20,6 +20,9 @@ class LikesController < ApplicationController
 
   def save_like(l)
     return l.save && (redirect_to root_path, notice: 'Like was successful.') if not_liked_and_not_disliked?
-    return redirect_to root_path, notice: 'Like submition failed, you can\'t like twice! and you can\'t like and dislike at the same time' if liked_or_disliked?
+
+    if liked_or_disliked?
+      redirect_to root_path, notice: 'Like submition failed, you can\'t like twice! and you can\'t like and dislike at the same time'
+    end
   end
 end

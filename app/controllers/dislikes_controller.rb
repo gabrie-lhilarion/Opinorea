@@ -19,7 +19,7 @@ class DislikesController < ApplicationController
   end
 
   def save_dislikes(likes)
-    if (not_disliked_and_not_liked?)
+    if not_disliked_and_not_liked?
       likes.save
       redirect_to root_path, notice: 'Disike was successful.'
     else

@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :reply do
-    content { "MyString" }
+    content { 'MyString' }
     user { nil }
     opinion { nil }
   end

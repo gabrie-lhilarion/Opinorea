@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :opinion do
-    comment { "MyText" }
+    comment { 'MyText' }
     user { nil }
   end
 end
