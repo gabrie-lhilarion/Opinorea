@@ -18,12 +18,12 @@ class LikesController < ApplicationController
     Like.liked(opinion, user).count.positive? || Dislike.disliked(opinion, user).count.positive?
   end
 
-  def save_like(*)
+  def save_like(like)
     if not_liked_and_not_disliked?
-      live.save
+      like.save
       redirect_to root_path, notice: 'Like was successful.'
     elsif liked_or_disliked?
-      redirect_to root_path, notice: 'You can\'t like twice!, you can\'t like and still dislike'
+      redirect_to root_path, notice: 'Failed, either like or dislike'
     end
   end
 end

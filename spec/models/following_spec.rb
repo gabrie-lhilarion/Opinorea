@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Following, type: :model do
   context 'Active Record Validation' do
-    it "belongs to user" do
+    it 'belongs to user' do
       expect(Following.reflect_on_association(:user).macro).to be(:belongs_to)
     end
   end
@@ -15,7 +15,7 @@ RSpec.describe Following, type: :model do
         user3 = create(:user)
 
         f1ofuser1 = create(:following, follower_id: user2.id, user_id: user1.id, follower_name: user2.fullname)
-        f2ouser1 = create(:following, follower_id: user3.id, user_id: user1.id, follower_name: user3.fullname)
+        f2ofuser1 = create(:following, follower_id: user3.id, user_id: user1.id, follower_name: user3.fullname)
 
         expect(Following.first_follower(user1.id)).to eq(f1ofuser1)
         expect(Following.first_follower(user1.id) == f1ofuser1).to be(true)
@@ -27,13 +27,12 @@ RSpec.describe Following, type: :model do
       it 'lists followers of a giving user for counting' do
         user1 = create(:user)
         user2 = create(:user)
-        user3 = create(:user
+        user3 = create(:user)
         user4 = create(:user)
-        user5 = create(:user)
 
-        f1ofuser1 = create(:following, follower_id: user2.id, user_id: user1.id, follower_name: user2.fullname)
+        create(:following, follower_id: user2.id, user_id: user1.id, follower_name: user2.fullname)
         f2ofuser1 = create(:following, follower_id: user3.id, user_id: user1.id, follower_name: user3.fullname)
-        f3ofuser1 = create(:following, follower_id: user4.id, user_id: user1.id, followr_name: user4.fullname)
+        create(:following, follower_id: user4.id, user_id: user1.id, follower_name: user4.fullname)
         f1ofuser3 = create(:following, follower_id: user1.id, user_id: user3.id, follower_name: user3.fullname)
 
         expect(Following.followers(user1.id)).to include(f2ofuser1)
@@ -48,11 +47,11 @@ RSpec.describe Following, type: :model do
         user2 = create(:user)
         user3 = create(:user)
         user4 = create(:user)
-        user5 = create(:user)
+        create(:user)
 
         followed1 = create(:following, follower_id: user1.id, user_id: user2.id, follower_name: user1.fullname)
-        followed2 = create(:following, follower_id: user1.id, user_id: user3.id, follower_name: user1.fullname)
-        followed3 = create(:following, follower_id: user1.id, user_id: user4.id, follower_name: user1.fullname)
+        create(:following, follower_id: user1.id, user_id: user3.id, follower_name: user1.fullname)
+        create(:following, follower_id: user1.id, user_id: user4.id, follower_name: user1.fullname)
 
         expect(Following.following(user1.id)).to include(followed1)
         expect(Following.following(user1.id).count).to eq(3)
@@ -65,30 +64,29 @@ RSpec.describe Following, type: :model do
         user2 = create(:user)
         user3 = create(:user)
         user4 = create(:user)
-        user5 = create(:user
+        create(:user)
 
-        followed1 = create(:following, follower_id: user1.id, user_id: user2.id, follower_name: user1.fullname)
-        followed2 = create(:following, follower_id: user1.id, user_id: user3.id, follower_name: user1.fullname)
-        followed3 = create(:following, follower_id: user2.id, user_id: user4.id, follower_name: user2.fullname)
+        create(:following, follower_id: user1.id, user_id: user2.id, follower_name: user1.fullname)
+        create(:following, follower_id: user1.id, user_id: user3.id, follower_name: user1.fullname)
+        create(:following, follower_id: user2.id, user_id: user4.id, follower_name: user2.fullname)
 
         expect(Following.not_follower?(user2.id, user4.id)).to be(true)
         expect(Following.not_follower?(user4.id, user2.id)).to be(false)
       end
     end
 
-    context '#is_a_followers' do
+    context '#a_followers' do
       it 'check if a user is a followers of another' do
         user1 = create(:user)
         user2 = create(:user)
         user3 = create(:user)
         user4 = create(:user)
-        user5 = create(:user)
 
-        followed1 = create(:following, follower_id: user1.id, user_id: user2.id, follower_name: user1.fullname)
-        followed2 = create(:following, follower_id: user1.id, user_id: user3.id, follower_name: user1.fullname)
-        followed3 = create(:following, follower_id: user2.id, user_id: user4.id, follower_name: user2.fullname)
+        create(:following, follower_id: user1.id, user_id: user2.id, follower_name: user1.fullname)
+        create(:following, follower_id: user1.id, user_id: user3.id, follower_name: user1.fullname)
+        create(:following, follower_id: user2.id, user_id: user4.id, follower_name: user2.fullname)
 
-        expect(Following.is_a_follower?(user4.id, user2.id)).to be(true)
+        expect(Following.a_follower?(user4.id, user2.id)).to be(true)
       end
     end
 
@@ -96,9 +94,8 @@ RSpec.describe Following, type: :model do
       it 'produces the id of a follower' do
         user1 = create(:user)
         user2 = create(:user)
-        user3 = create(:user)
-        user4 = create(:user)
-        user5 = create(:user)
+        create(:user)
+        create(:user)
 
         followed1 = create(:following, follower_id: user1.id, user_id: user2.id, follower_name: user1.fullname)
 

@@ -37,6 +37,6 @@ describe 'user interaction', type: :feature do
     end
 
     find("a[title='click to dislike opinion']").click
-    expect(page).to have_content('Failed, you can\'t dislike twice! and you can\'t like and dislike at once')
+    expect(page).to have_content('Failed, either like or dislike')
   end
 end
