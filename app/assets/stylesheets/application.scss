@@ -1,3 +1,894 @@
 /*
  I have moved all styles here to /javascript/styles/application.scss to make it available for webpacker
 */
+@import "~bootstrap/scss/bootstrap.scss";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#mobile-icon-slide-in {
+    display: none;
+}
+
+.light-blue {
+    color: #398;
+}
+
+#mobile-icon {
+    display: none;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.sessions_page {
+    width: 100%;
+    max-width: 450px;
+    margin: auto;
+    padding: 10px;
+    box-sizing: border-box;
+    border: solid 1px #ccc;
+}
+
+.sessions_page h2 { 
+    text-align: center; 
+}
+
+.sessions_page  form { 
+    padding: 3px;
+}
+
+.sessions_page div.field {
+    width: 100%;
+    margin: auto;
+    padding: 0px;
+}
+
+.sessions_page input[type=email],
+.sessions_page input[type=text],
+.sessions_page input[type=password] { 
+    width: 100%;
+    margin: auto;
+    padding: 12px 9px;
+    box-sizing: border-box;
+    border: solid 1px #ccc;
+    background-color: #fff;;
+}
+
+.field p {
+    width: 100%;
+    margin: auto;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    box-sizing: border-box;
+    border: solid 1px #ccc;
+    background-color: #fff;;
+}
+
+.field p span {
+    color: #666;
+    display: inline-block;
+}
+
+.sessions_page .top-raduis {
+    border-bottom: none;
+    border-radius: 9px 9px 0 0;
+}
+
+.sessions_page .down-radius { 
+    border-radius: 0 0 9px 9px;
+}
+
+.sessions_page .actions {
+    padding: 20px 0;
+}
+
+.sessions_page .actions input[type=submit] {
+    border: none;
+    background-color:#13d2d2;
+    padding: 6px 8px;
+}
+
+.sessions_page a {
+    background-color: #4f68e0;
+    color: #fff;
+    font-weight: bold;  
+    padding: 6px 8px; 
+    text-decoration: none;
+}
+
+.alternate-action  {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.alternate-action  span {
+    align-items: baseline;
+    line-height: 32px;
+    margin-right: 30px;
+}
+
+#wrap {
+    display: flex;
+    flex-direction: row;
+}
+
+.left-aside {
+    width: 20%;
+    background-color: rgb(19, 45, 71);
+    box-sizing: border-box;
+}
+
+.right-main {
+    width: 80%;
+    background-color: lavender;
+}
+
+#top-icon-only {
+    background-color: rgb(64, 176, 228);
+    display: flex;
+    flex-direction: row;
+}
+
+.logo-icon,
+.action-icons {
+    width: 50%;
+}
+
+#logo {
+    color: #fff;
+    display: inline-block;
+    width: 60px;
+    height: 55px;
+    margin-left: 35px;
+}
+
+.action-icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+#mobile-icon-slide-in {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    overflow-y: auto;
+    overflow-x: hidden;
+    top: 60px;
+    right: 0px;
+}
+
+.action-icons ._icon {
+    display: inline-block;
+    margin: 0px 6px;
+    height: 55px;
+    width: 60px;
+    line-height: 55px;
+    text-align: center;
+    font-size: 1.3em;
+}
+
+#top-tab-navigation {
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+}
+
+#top-tab-navigation ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+    width: 65%;
+}
+
+.who-to-follow {
+    width: 35%;
+    border-left: solid 1px #ccc;
+    box-sizing: border-box;
+}
+
+.who-to-follow div {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: auto; 
+}
+
+.who-to-follow p {
+    height: 50px;
+    line-height: 50px;
+    text-transform: uppercase;
+    color: #888;
+}
+
+.who-to-follow span {
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    text-transform: uppercase;
+    color: #888;
+}
+
+#top-tab-navigation li {
+    list-style: none;
+}
+
+#top-tab-navigation a {
+    color: #888;
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 20px;
+}
+
+#top-tab-navigation a.active {
+    color: #444;
+    border-bottom: solid 3px rgb(64, 176, 228);
+}
+
+#body-of-right-main {
+    min-height: 400px;
+    display: flex;
+    flex-direction: row;
+}
+
+#personal-profile-area {
+    display: flex;
+    flex-direction: row;
+}
+
+#banner {
+    background-color: yellow;
+    height: 240px;
+    width: 65%;
+    border-top: solid 1px #ccc;
+    overflow: hidden;
+}
+
+#banner img {
+    width: 100%;
+}
+
+#profile-image {
+    box-sizing: border-box;
+    height: 240px;
+    width: 35%;
+    border-left: solid 1px #ccc;
+    text-align: center;
+}
+
+#profile-image .circle {
+    width: 35px;
+    height: 35px;
+    display: block;
+    border: solid 1px #ccc;
+    border-radius: 50%;
+    line-height: 33px;
+    text-align: center;
+}
+
+#profile-image .circle a {
+    text-decoration: none;
+}
+
+#profile-image-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: 22px;
+    color: #bbb;
+}
+
+#display-picture img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+#profile-menu-left { 
+    width: 29%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#profile-menu-right { 
+    width: 29%;
+}
+
+#profile-image-bottom {
+    border-top: solid 1px #ccc;
+    border-bottom: solid 1px #ccc;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 65px;
+    padding: 0;
+    margin: 0; 
+    text-align: center;
+}
+
+#profile-image-bottom  div {
+    padding: 10px 10px;
+}
+
+#profile-image-bottom h4 { 
+    padding: 0;
+    margin: 0;
+    font-size: 1.1em;
+}
+
+#profile-image-bottom span { 
+    padding: 0;
+    margin: 0;
+    font-size: 0.8em; 
+    font-weight: lighter;   
+}
+
+#display-following {
+    border-left: solid 1px #ccc;
+    border-right: solid 1px #ccc;
+}
+
+#profile-image-middle h4 { 
+    margin: 10px 0 0 0;
+    padding: 0;
+}
+
+#profile-image-middle p { 
+    margin: 0 0 12px 0;
+    padding: 0;
+}
+
+#central {
+    width: 65%;
+    border-top: solid 1px #ccc;
+}
+
+#right {
+    box-sizing: border-box;
+    width: 35%;
+    border-left: solid 1px #ccc;
+}
+
+#profile {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    height: 60px;
+    padding-top: 8px;
+}
+
+
+#social_details {
+    display: flex;
+    flex-direction: row;
+    color: #ccc; 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; 
+    height: 55px;
+    padding-top: 5px;
+}
+
+#profile span
+{
+    display: block;
+    height: 45px;
+    width: 45px;
+    border-radius: 1.5px;
+    background-color: rgb(247, 243, 243);
+    margin: 0 12px 0 25px;
+}
+
+#profile img
+{
+    display: block;
+    height: 45px;
+    width: 45px;
+    border-radius: 1.5px;
+    background-color: rgb(247, 243, 243);
+}
+
+.followers .number {
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.following .text {
+    font-weight: bold;
+    font-size: small;
+}
+
+.following .number {
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.following .text {
+    font-weight: bold;
+    font-size: small;
+}
+
+#profile h4 {
+    color: #ccc;
+    line-height: 17px;
+    font-size: 1em;
+}
+
+#profile h4 a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.8em;
+}
+
+#social_details p {
+    width: 90px;
+    min-height: 40px;
+    text-align: center;
+}
+
+#social_details i {
+    color: rgb(136, 133, 133);
+    font-size: 0.9em;
+}
+
+#side-links ul {
+    margin: 0;
+    padding: 0 ;
+}
+
+#side-links li {
+    list-style: none;
+}
+
+#side-links a {
+    color: rgb(148, 144, 144);
+    text-decoration: none;
+    height: 45px;
+    line-height: 45px;
+    padding-left: 25px;
+    text-transform: uppercase;
+}
+
+#side-links a.active {
+    color: #fff;
+    display: block;
+    background-color: rgb(64, 176, 228);
+}
+
+#side-links img {
+    width: 15px;
+}
+
+#right ul {
+    border-top: solid 1px #ccc;
+    padding: 0;
+    width: 80%;
+    margin: auto;
+}
+
+.persons-to-follow {
+    margin-top: 20px;
+}
+
+.persons-to-follow li {
+    display: flex;
+    flex-direction: row;
+    margin: 15px 0;
+}
+
+.other-right-content li {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    padding: 0; 
+    list-style: none;
+}
+
+#right div.round,
+#right div.round img { 
+    display: block;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%; 
+}
+
+#right div.follower-info {
+    margin-left: 15px;
+} 
+
+#right div.round {
+    flex-grow: 0;
+}
+
+.unfollow-link-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between; 
+}
+
+#right div.follower-info {
+    flex-grow: 4;
+}
+
+.unfollow-link-container a{
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    border: solid 1px #ccc;
+    border-radius: 50%;
+    margin: auto;
+    text-align: center;
+    line-height: 30px;
+    text-decoration: none;
+}
+
+#right div.follower-info h3 {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+#right div.follower-info p {
+    font-size: 0.9em; 
+}
+
+#right div.follower-info a {
+    text-decoration: none; 
+}
+
+#right div.follower-info p span {
+    color: cadetblue;
+}
+
+#right .other-right-content {
+    border-top: solid 1px #ccc;
+}
+
+.popular {
+    padding: 30px 0;
+    width: 80%;
+    margin: auto;  
+}
+
+#trending {
+    width: 80%;
+    margin: auto;
+    height: 60px;
+    line-height: 60px;
+    text-transform: uppercase;
+    border-bottom: solid 1px #ccc;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#timeline {
+    width: 90%;
+    margin: auto;
+}
+
+#new-post {
+    background-color: #fff;
+    width: 100%;
+    margin-top: 25px;
+    padding: 25px;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+#new-post form {
+    width: 100%;
+    color: #888;
+    text-transform: uppercase;
+}
+
+#new-post input[type="text"] {
+    display: inline-block;
+    width: 98%;
+    margin: 2px auto;
+    border: solid 1px #ccc;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+#blue-btn {
+    border: none;
+    background-color:rgb(64, 176, 228);
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+#recent-opinions {
+    background-color: #fff;
+    width: 100%;
+    margin-top: 25px;
+    padding: 25px;
+    box-sizing: border-box;
+    border-radius: 5px;    
+}
+
+#recent-opinions h4 { 
+    color: rgb(64, 176, 228);
+    border-bottom: solid 1px #ccc;
+}
+
+.opinions-list {
+    margin: 0;
+    padding: 0;
+}
+
+.opinions-list li {
+    color: #888;
+    display: flex;
+    flex-direction: row;
+    margin: 2px 0 10px 0;
+    border-bottom: solid 1px #ddd;
+}
+
+#recent-opinions .for-image {
+    height: 50px;
+    width: 50px;
+    background-color: #ccc;
+    margin-right: 15px;
+}
+
+.person-time {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.person-time span {
+    font-size: smaller;
+}
+
+.person-time h5 {
+    color: #666;
+    font-size: 1em;
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+}
+
+.person-comment {
+    font-size: 0.9em;
+}
+
+.recent-follower {
+    width: auto;
+    flex-grow: 9;
+}
+
+#trending .fa-cog {
+    color: #888;
+}
+
+.interactions span {
+    background-color: rgb(214, 238, 247);
+    border-radius: 7px;
+    color: #398;
+    display: inline-block;
+    font-size: 0.8em;
+    padding: 0 5px;
+    margin: 1px;
+
+}
+
+.interactions i a {
+    color: #398;
+    font-size: 0.9em;
+    text-decoration: none;
+}
+
+.interactions em { 
+    font-size: 0.8em;
+    color: rgb(46, 45, 45);
+}
+
+.reply_now {
+    display: block;
+    color: #0d6efd;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.reply_now:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.recent-follower form {
+    width: 100%;
+}
+
+.recent-follower form input {
+    display: block;
+    padding-left: 20px;
+    width: 100%;
+}
+
+.recent-follower form button { 
+    background-color: #0d6efd;
+    border: none;
+    color: #fff;
+    padding: 3px;
+    font-size: 0.7em;
+    margin-top: 3px;
+    border-radius: 4px;
+}
+
+#my_notice {
+    background-color: forestgreen;
+    color: #fff;
+    border-radius: 20px;
+    box-shadow: grey 0, 15, 5;
+    display: flex;
+    height: 40px;
+    line-height: 40px;
+    justify-content: space-between;
+    margin: auto;
+    padding-left: 12px;
+    position: fixed;
+    text-align: center;
+    top: 30px;
+    width: 80%;
+}
+
+#my_notice span {
+    background-color: #132d47;
+    border-radius: 20px;
+    cursor: pointer;
+    padding: 0 4px;
+}
+
+#myModal {
+    background-color: hsla( 120, 100, 100, 0.8 );
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 110%;
+}
+
+#myModal .close {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border-color: #0d6efd;
+    background-color: #0d6efd;
+    color: #fff;
+}
+
+#myModal span {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border-color: #0d6efd;
+    background-color: #0d6efd;
+    color: #fff;
+}
+
+#clone_wrap .input[type=text] {
+    width: 89%;
+    display: block;
+    margin: auto;  
+}
+
+@media only screen and (min-width: 1366px) {
+    body {
+      max-width: 1366px;
+    }
+
+
+}
+
+@media only screen and (max-width: 1000px) {
+
+    #profile span
+    {
+        display: block;
+        height: 35px;
+        width: 35px;
+        border-radius: 1.5px;
+        background-color: rgb(247, 243, 243);
+        margin: 0 12px 0 25px;
+    }
+
+    #profile img
+    {
+        display: block;
+        height: 35px;
+        width: 35px;
+        border-radius: 1.5px;
+        background-color: rgb(247, 243, 243);
+    }
+
+    #profile h4 {
+        color: #ccc;
+        line-height: 45px;
+        font-size: 0.9em;
+    }
+
+    .followers .number {
+        font-weight: bold;
+        font-size: 0.8em;
+    }
+
+    .following .number {
+        font-weight: bold;
+        font-size: 0.8em;
+    }
+
+    .following .text {
+        font-weight: normal;
+        font-size: x-small;
+    }
+
+    .following .text {
+        font-weight: normal;
+        font-size: x-small;
+    }
+
+    #right,
+    .who-to-follow {
+        display: none;
+    }
+
+    #central {
+        width: 100%; 
+    }
+
+    .left-aside {
+        width: 30%;
+        background-color: rgb(19, 45, 71);
+        box-sizing: border-box;
+    }
+    
+    .right-main {
+        width: 70%;
+        background-color: lavender;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    .left-aside {
+        display: none;
+    }
+
+    .right-main {
+        width: 100%;
+        background-color: lavender;
+    }
+
+    #non-mobile-icon {
+        display: none;
+    }
+
+    #mobile-icon {
+        display: block;
+    }
+
+    #logo {
+        margin-left: 5px;
+    }
+
+    .show {
+        display: block;
+    } 
+
+}
