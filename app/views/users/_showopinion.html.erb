@@ -1,7 +1,7 @@
 <% @recentopinion.each do |opinion| %>
 
 <li> 
-     <div class="for-image" id="opinion_<%= opinion.id %>_image"> <%= image_tag opinion.user.photo, style: "width: 50px; height: 50px" %> </div>
+     <div class="for-image" id="opinion_<%= opinion.id %>_image"> <%= display_image(opinion.user.id, opinion.user.photo) %> </div>
      <div class="recent-follower">
           <div class="person-time">
                 <h5 id="opinion_<%= opinion.id %>_fullname"> <%= opinion.user.fullname %></h5>  

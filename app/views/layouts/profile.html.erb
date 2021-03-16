@@ -52,8 +52,8 @@
     <div id="wrap"> 
     <div class="left-aside"> 
 
-       <div id="profile"> 
-          <span> <%= image_tag current_user.photo %> </span>
+       <div id="profile">
+          <span> <%= display_image(current_user.id, current_user.photo) %> </span>
           <h4> <%= current_user.fullname %> </br>
             <%= link_to "Logout", destroy_user_session_path, method: :delete %>
           </h4> 
@@ -94,7 +94,7 @@
         </div>
       </div>
       <div id="personal-profile-area">
-        <div id="banner"> <%= image_tag @profile.cover_image %> </div>
+        <div id="banner"> <%= display_cover(@profile.id, @profile.cover_image) %> </div>
         <div id="profile-image"> 
             <div id="profile-image-top"> 
                 <div id="profile-menu-left"> 
@@ -105,8 +105,8 @@
                       (link_to '+', follow_path(@profile.id), class: "follow_person", title: "follow #{@profile.fullname}") 
                     %> 
                   </span>
-                </div>
-                <div id="display-picture"> <%= image_tag @profile.photo %> </div> 
+                </div> 
+                <div id="display-picture"> <%= display_image(@profile.id, @profile.photo) %> </div> 
                 <div id="profile-menu-right"> <span class="circle"> <i class="fas fa-bars"></i> </span> </div>
             </div>
             <div id="profile-image-middle"> 

@@ -1,7 +1,7 @@
 <% @followed_by.each do |follower| %>
       
         <li> 
-            <div class="round"> <%= image_tag User.find(follower.follower_id).photo %> </div> 
+            <div class="round"> <%= display_image(follower.follower_id, User.find(follower.follower_id).photo) %> </div> 
             <div  class="follower-info"> 
                 <h3> 
                     <%=  me_or_another(follower, current_user) %> 

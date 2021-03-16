@@ -287,9 +287,14 @@
     color: #bbb;
 }
 
-#display-picture img {
+#display-picture {
     width: 80px;
     height: 80px;
+    border-radius: 50%;
+    border: solid 1px #ccc;
+}
+
+#display-picture img {
     border-radius: 50%;
 }
 
@@ -498,7 +503,12 @@
     display: block;
     width: 55px;
     height: 55px;
-    border-radius: 50%; 
+    border-radius: 50%;
+    padding: 0; 
+}
+
+#right div.round {
+    border: solid 1px #ccc;
 }
 
 #right div.follower-info {
@@ -783,6 +793,14 @@
     width: 89%;
     display: block;
     margin: auto;  
+}
+
+.cover_heading {
+    text-align: center;
+}
+
+.cover_subheading {
+    text-align: center;
 }
 
 @media only screen and (min-width: 1366px) {
