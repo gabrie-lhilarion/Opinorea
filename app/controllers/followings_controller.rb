@@ -6,14 +6,14 @@ class FollowingsController < ApplicationController
     if Following.a_follower?(followed.id, current_user.id)
       redirect_to root_path, notice: "You are already following @#{followed.username}."
     elsif following.save
-      redirect_to root_path, notice: "You have followed @#{followed.username} successfully."
+      redirect_to user_path(followed), notice: "You have followed @#{followed.username} successfully."
     else
       redirect_to user_path(current_user), notice: "Could not follow @#{followed.username}."
     end
   end
 
   def destroy
-    @follower = Following.find(params[:id]) 
+    @follower = Following.find(params[:id])
     id = @follower.user_id
     followed = User.find(id).fullname
     if @follower.destroy

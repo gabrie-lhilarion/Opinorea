@@ -395,7 +395,8 @@ a {
     width: 45px;
     border-radius: 1.5px;
     background-color: rgb(247, 243, 243);
-    margin: 0 12px 0 25px;
+    margin-right: 20px;
+    margin-left: 10px;
 }
 
 #profile img
@@ -529,11 +530,9 @@ a {
     display: block;
     font-size: 350%;
     font-weight: bold;
-    text-align: left;
-    line-height: 30px;
-    color: #0d6efd;
-    padding: 1px;
-    margin-top: 2px;
+    text-align: center;
+    line-height: 42px;
+    color: #0d6efd; 
     text-decoration: none;
 }
 
@@ -559,6 +558,18 @@ a {
     padding: 1px;
     margin-top: 2px;
     text-decoration: none;
+}
+
+.for-image .inside-round {
+    color: #0d6efd;
+    display: inline-block;
+    font-size: 400%;
+    font-weight: bold;
+    position: absolute;
+    top: 2px;
+    line-height: 45px;
+    padding: 0;
+    margin: 0;
 }
 
 .unfollow-link-container {
@@ -690,8 +701,8 @@ a {
 #recent-opinions .for-image {
     height: 50px;
     width: 50px;
-    background-color: #ccc;
     margin-right: 15px;
+    position: relative;
 }
 
 .person-time {

@@ -33,6 +33,4 @@ class User < ApplicationRecord
   def self.who_to_follow(user)
     User.where.not(id: user).ids
   end
-
-  scope :not_following, ->(ids) { where.not(id: ids) }
 end
