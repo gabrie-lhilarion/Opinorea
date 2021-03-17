@@ -3,6 +3,11 @@
 * {
     margin: 0;
     padding: 0;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
 }
 
 #mobile-icon-slide-in {
@@ -515,15 +520,45 @@
     flex-grow: 0;
 }
 
-.inside-round {
+#profile div {
+    width: 55px;
+    margin: 1px 25px 1px 6px;
+}
+
+#profile .inside-round {
     display: block;
-    font-size: 500%;
+    font-size: 350%;
     font-weight: bold;
-    text-align: center;
+    text-align: left;
     line-height: 30px;
     color: #0d6efd;
     padding: 1px;
     margin-top: 2px;
+    text-decoration: none;
+}
+
+.persons-to-follow .inside-round {
+    display: block;
+    font-size: 450%;
+    font-weight: bold;
+    text-align: left;
+    line-height: 30px;
+    color: #0d6efd;
+    padding: 1px;
+    margin-top: 2px;
+    text-decoration: none;
+}
+
+#display-picture .inside-round {
+    display: block;
+    font-size: 550%;
+    font-weight: bold;
+    text-align: left;
+    line-height: 30px;
+    color: #0d6efd;
+    padding: 1px;
+    margin-top: 2px;
+    text-decoration: none;
 }
 
 .unfollow-link-container {

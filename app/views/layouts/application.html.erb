@@ -56,8 +56,11 @@
     <div class="left-aside"> 
 
        <div id="profile"> 
-            <a href="/"> <span> <%= display_image(current_user.id, current_user.photo) %> </span></a> 
-          <h4> <%= current_user.fullname %> </br>
+          <div>
+            <%= display_image(current_user.id, current_user.photo) %> 
+          </div>
+          <h4> <%= current_user.fullname %> 
+            </br>
             <%= link_to "Logout", destroy_user_session_path, method: :delete %>
           </h4> 
        </div> 

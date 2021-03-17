@@ -10,10 +10,10 @@ module FollowingsHelper
   def follow_or_unfollow(follower, current_user)
     if follower.follower_id == current_user.id
       folk = @profile.fullname
-      (link_to '-', unfollow_path(Following.following_record(@profile.id, current_user.id)), title: "Unfollow #{folk}")
+      ( link_to '-', unfollow_path(Following.following_record(@profile.id, current_user.id)), { method: :post, title: "Unfollow #{folk}" } )
     else
-      (link_to '+', follow_path(follower.follower_id),
-               class: 'follow_person', title: "Follow #{follower.follower_name}")
+      ( link_to '+', follow_path(follower.follower_id),
+               { method: :post, class: 'follow_person', title: "Follow #{follower.follower_name}" } )
     end
   end
 end

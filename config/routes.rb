@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   resources :opinions, only: [:new, :create]
   resources :followings, only: [:create, :destroy]
   # resources :likes, only: :create
-  get '/followings/:id', to: 'followings#create', as: "follow"
-  get '/destroy-followings/:id', to: 'followings#destroy', as: "unfollow"
+  post '/followings/:id', to: 'followings#create', as: "follow"
+  post '/destroy-followings/:id', to: 'followings#destroy', as: "unfollow"
   post '/like/:opinion_id/:user_id', to: 'likes#create', as: "like"
   post '/dislike/:opinion_id/:user_id', to: 'dislikes#create', as: "dislike"
   post '/reply-opinion', to: 'replies#create', as: "reply"

@@ -100,9 +100,9 @@
                 <div id="profile-menu-left"> 
                   <span class="circle"> 
                     <%= Following.a_follower?(@profile.id, current_user.id) ?  
-                      (link_to '-', unfollow_path(Following.following_record(@profile.id, current_user.id)), 
+                      (link_to '-', unfollow_path(Following.following_record(@profile.id, current_user.id)), method: :post,
                       class: "follow_person", title: "unfollow #{@profile.fullname}" ) :
-                      (link_to '+', follow_path(@profile.id), class: "follow_person", title: "follow #{@profile.fullname}") 
+                      (link_to '+', follow_path(@profile.id), method: :post, class: "follow_person", title: "follow #{@profile.fullname}") 
                     %> 
                   </span>
                 </div> 
