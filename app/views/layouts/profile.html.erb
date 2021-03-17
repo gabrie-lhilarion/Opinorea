@@ -53,7 +53,7 @@
     <div class="left-aside"> 
 
        <div id="profile">
-          <span> <%= display_image(current_user.id, current_user.photo) %> </span>
+          <a href="/"><span> <%= display_image(current_user.id, current_user.photo) %> </span> </a>
           <h4> <%= current_user.fullname %> </br>
             <%= link_to "Logout", destroy_user_session_path, method: :delete %>
           </h4> 
@@ -83,7 +83,7 @@
     <div class="top-of-right-main">
       <div id="top-icon-only"> 
         <div class="logo-icon"> 
-          <span id="logo"><i class="fas fa-comments fa-3x"></i></span>
+          <a href="/"><span id="logo"><i class="fas fa-comments fa-3x"></i></span></a>
         </div>
         <div class="action-icons"> 
           <span id="non-mobile-icon" class="_icon"> <i class="fas fa-highlighter"></i> </span> 

@@ -290,8 +290,8 @@
 #display-picture {
     width: 80px;
     height: 80px;
-    border-radius: 50%;
-    border: solid 1px #ccc;
+    border-radius: 50%; 
+    padding-top: 9px;
 }
 
 #display-picture img {
@@ -507,16 +507,23 @@
     padding: 0; 
 }
 
-#right div.round {
-    border: solid 1px #ccc;
-}
-
 #right div.follower-info {
     margin-left: 15px;
 } 
 
 #right div.round {
     flex-grow: 0;
+}
+
+.inside-round {
+    display: block;
+    font-size: 500%;
+    font-weight: bold;
+    text-align: center;
+    line-height: 30px;
+    color: #0d6efd;
+    padding: 1px;
+    margin-top: 2px;
 }
 
 .unfollow-link-container {
@@ -681,6 +688,16 @@
 
 #trending .fa-cog {
     color: #888;
+}
+
+.interactions strong {
+    background-color: #0d6efd;
+    color: #fff;
+    margin-right: 20px;
+    padding: 3px;
+    display: inline-block;
+    border-radius: 8px;
+    font-size: 0.8em;
 }
 
 .interactions span {

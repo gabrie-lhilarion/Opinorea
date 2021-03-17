@@ -682,6 +682,12 @@
 
 }
 
+.interactions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .interactions i a {
     color: #398;
     font-size: 0.9em;

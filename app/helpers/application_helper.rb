@@ -1,15 +1,15 @@
 module ApplicationHelper
     
-  def display_image(user_id,photo)
+  def display_image(user_id, photo)
     user = User.find(user_id) 
     if user.photo.attached?
      image_tag photo, style: "width: inherit; height: inherit"
     else  
-     ''
+     "<span class=\"inside-round\">#{user.fullname[0]}</span>".html_safe
     end
   end
 
-  def display_cover(user_id,cover_image)
+  def display_cover(user_id, cover_image)
     user = User.find(user_id)
     if user.cover_image.attached?
      image_tag cover_image, style: "width: 100%; height: auto"

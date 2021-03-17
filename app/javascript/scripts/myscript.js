@@ -99,9 +99,10 @@
                   element_to_update = document.getElementById(`opinion_${opinionId}_reply_count`)
                   inintial_replies = parseInt(element_to_update.textContent)
                   element_to_update.textContent = inintial_replies + 1
-                  const fade_out_bg = (x, y) => { 
-
-                  }
+                  notification_div.textContent = "Reply ssent successfully"
+                  setTimeout(() => {
+                        notification_div.textContent = "" 
+                  }, 3000);
             });
            
             my_form.addEventListener("ajax:error", (event) => {

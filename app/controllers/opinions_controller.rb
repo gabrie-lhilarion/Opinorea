@@ -1,4 +1,6 @@
 class OpinionsController < ApplicationController
+  layout 'application', only: :show
+
   def new
     @opinion = Opinion.new
   end
@@ -10,6 +12,10 @@ class OpinionsController < ApplicationController
     else
       redirect_to root_path, notice: 'Opinion submition failed!.'
     end
+  end
+
+  def show
+    @tofollow = User.who_to_follow(current_user.id)
   end
 
   private

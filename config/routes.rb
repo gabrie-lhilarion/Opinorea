@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   post '/like/:opinion_id/:user_id', to: 'likes#create', as: "like"
   post '/dislike/:opinion_id/:user_id', to: 'dislikes#create', as: "dislike"
   post '/reply-opinion', to: 'replies#create', as: "reply"
+  #get '/thread/:opinion_id', to: 'opinions#show', as: "thread"
   root to: "users#index"
 end
