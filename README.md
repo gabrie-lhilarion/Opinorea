@@ -84,7 +84,7 @@ It will run the following test files:
 
 👤 **Author**
 
-Gabriel Malheiros Silveira
+Gabriel Hilarion
 
 - Github: [@gabrie-lhilarion](https://github.com/gabrie-lhilarion)
 - E-mail: [Gabriel Hilarion](mailto:gabrielhilarion@gmail.com)
