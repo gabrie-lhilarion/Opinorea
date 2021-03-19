@@ -10,6 +10,8 @@ There is another view for the user profile, that shows a cover image above the s
 
 The functionality to follow/unfollow is very intuitive. '+' buttons to follow, '-' button to unfollow a user.
 
+A user (when logged in) can either only like or dislike an opinion
+
 # Screen Home Page
 
 ## Main Page

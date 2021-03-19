@@ -15,7 +15,7 @@ module ApplicationHelper
     else
       full = user.fullname
       name = user.username
-      "<h1 class=\"cover_heading\">#{full}</h1> <h4 class=\"cover_subheading\"> <em> @#{name} </em> </h4>"
+      "<h1 class=\"cover_heading\">#{full}</h1> <h4 class=\"cover_subheading\"> <em> @#{name} </em> </h4>".html_safe
     end
   end
 end
