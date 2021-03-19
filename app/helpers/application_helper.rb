@@ -2,7 +2,7 @@ module ApplicationHelper
   def display_image(user_id, photo)
     user = User.find(user_id)
     if user.photo.attached?
-      image_tag photo, style: 'max-width: 55px; height: auto'
+      image_tag photo, style: 'max-width: 55px; max-height: 55px'
     else
       "<span class=\"inside-round\">#{user.fullname[0]}</span>".html_safe
     end
