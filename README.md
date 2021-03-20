@@ -33,7 +33,7 @@ A user (when logged in) can either only like or dislike an opinion
 
 ## Live Demo
 
-[Live Demo Link](https://bearded-toonie-16990.herokuapp.com/)
+[Live Demo Link](https://boiling-escarpment-77933.herokuapp.com/)
 
 ## Video Presentation
 
