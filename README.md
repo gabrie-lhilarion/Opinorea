@@ -15,10 +15,10 @@ A user (when logged in) can either only like or dislike an opinion
 # Screen Home Page
 
 ## Main Page
-![Screenshot Main Page](./app/assets/images/m)
+![Screenshot Main Page](./app/assets/images/homepage.png)
 
 ## User Page
-![Screenshot Profile Page](./app/assets/images/us)
+![Screenshot Profile Page](./app/assets/images/profile_page.png)
 
 
 ## Built With
@@ -29,14 +29,15 @@ A user (when logged in) can either only like or dislike an opinion
    - Bootstrap,
    - Font Awesome,
    - RSpec(Testing)
+   - Factory Bot Rails
 
 ## Live Demo
 
-[Live Demo Link](https://bearded-toonie-16990.herokuapp.com/)
+[Live Demo Link](./app/assets/images/zoom_0.mp4)
 
 ## Video Presentation
 
-[Project Presentation](https://)
+[Project Presentation](https://youtu.be/KtUpKwNlg6g)
 
 ## Getting Started
 

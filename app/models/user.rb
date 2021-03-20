@@ -19,7 +19,7 @@ class User < ApplicationRecord
     ids = [user]
     followers = Following.select(:follower_id).where(user_id: user)
     followers.each { |follower| ids << follower.follower_id }
-    Opinion.where(user_id: ids)
+    Opinion.where(user_id: ids).order(created_at: :desc)
   end
 
   def self.recent_opinions(user)
