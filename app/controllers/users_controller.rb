@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @user = User.new
     @opinion = Opinion.new
     @tofollow = User.who_to_follow(current_user.id)
-    @recentopinion = User.recent_conversations(current_user.id)
+    @recentopinion = Opinion.all
   end
 
   def show
