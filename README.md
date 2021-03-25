@@ -37,7 +37,14 @@ A user (when logged in) can either only like or dislike an opinion
 
 ## Video Presentation
 
+<<<<<<< HEAD
 [Project Presentation](https://)
+=======
+
+https://user-images.githubusercontent.com/59238133/111859228-9aeb7800-893f-11eb-9c56-30ebe7616a81.mp4
+
+
+>>>>>>> ff84b667af796a9084fe3958255f3c8e77e4ec43
 
 ## Getting Started
 
