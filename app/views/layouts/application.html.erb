@@ -59,7 +59,7 @@
           <div>
             <%= display_image(current_user.id, current_user.photo) %> 
           </div>
-          <h4> <%= current_user.fullname %> 
+          <h4> <%= link_to  current_user.fullname, user_path(current_user) %> 
             </br>
             <%= link_to "Logout", destroy_user_session_path, method: :delete %>
           </h4> 
