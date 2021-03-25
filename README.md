@@ -33,11 +33,11 @@ A user (when logged in) can either only like or dislike an opinion
 
 ## Live Demo
 
-[Live Demo Link](./app/assets/images/zoom_0.mp4)
+[Live Demo Link](https://boiling-escarpment-77933.herokuapp.com/)
 
 ## Video Presentation
 
-[Project Presentation](https://youtu.be/KtUpKwNlg6g)
+[Project Presentation](https://)
 
 ## Getting Started
 
@@ -47,6 +47,12 @@ You can get a local copy of the repository please run the following commands on 
 $ cd <folder>
 
 $ git clone git@github.com:gabrie-lhilarion/opinorea.git
+```
+
+You need to add Yarn
+
+```
+$ yarn init
 ```
 
 You need to install the required gems:

@@ -60,7 +60,7 @@
                         if(document.getElementById('user_id')) { document.getElementById('user_id').remove() }
                         if(document.getElementById('opinion_id')) { document.getElementById('opinion_id').remove() }
                         const user_id = x.id.split(',')[1]
-                        // I am using comment id as a point of reference
+                       
                         const opinion_id = x.id.split(',')[0] 
                         const fullname = document.getElementById(`opinion_${opinion_id}_fullname`).textContent
                         const comment = document.getElementById(`opinion_${opinion_id}_comment`).textContent
@@ -91,7 +91,7 @@
                         user_id_input.insertAdjacentHTML('afterend', '<div id=\"action-notification\"></div>')
                         }
                   );
-            }); // end of link for each
+            });  
             my_form.addEventListener("ajax:success", (event) => {
                   let notification_div = document.getElementById('action-notification')
                   const [_data, _status, xhr] = event.detail;
@@ -110,7 +110,7 @@
                   const error_messages = []
                   const reply_content = document.getElementById('reply_content').value.replace(/ /g, '') 
                   reply_content.length < 1 ? error_messages.push('Reply is too shot or empty') : null
-                  reply_content.length > 50 ? error_messages.push('Reply is longer tha 50 character') : null 
+                  reply_content.length > 50 ? error_messages.push('Reply is longer than 50 character') : null 
 
                   document.getElementById('reply_content').value = ' '
                   if( error_messages.length > 0 ){ error_messages.forEach(  (x) => { 
