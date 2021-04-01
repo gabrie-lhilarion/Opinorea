@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Opinorea</title>
+    <script src="https://kit.fontawesome.com/17579a901f.js" crossorigin="anonymous"></script>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+  </head>
+
+  <body>
+    <div id="mobile-icon-slide-in"> 
+      <ul class="persons-to-follow"> 
+        <h3> WHO TO FOLLOW </h3>
+        <li> 
+          <div class="round"> </div> 
+          <div class="follower-info"> 
+            <h3> Edo Happiness</h3>
+            <p> Followed by <span>Gabriel Silviera </span>  </p>
+          </div>
+        </li>
+
+          <li> 
+          <div class="round"> </div> 
+          <div  class="follower-info"> 
+            <h3> Edo Happiness</h3>
+            <p> Followed by <span>Gabriel Silviera </span> </p>
+          </div>
+        </li>
+      </ul>
+
+       <ul>
+          <h3>  TRENDING </h3>
+          <li> #onearmy </li>
+          <li> #endsars </li>
+          <li> #globalism </li>
+          <li> #godthesupermaster </li>
+          <li> #onearmy </li>
+          <li> #endsars </li>
+          <li> #globalism </li>
+          <li> #godthesupermaster </li>
+       </ul>
+
+      <ul> 
+        <h5>MAIN MENU</h5>
+        <li>Home </li>
+        <li>Connect </li>
+        <li>Discover </li>
+        <li>Statistic </li>
+      </ul>
+    </div>
+   
+    <div id="wrap"> 
+    <div class="left-aside"> 
+
+       <div id="profile">
+          <a href="/"> 
+            <%= display_image(current_user.id, current_user.photo) %> 
+          </a>
+          <h4> <%= current_user.fullname %> </br>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+          </h4> 
+       </div> 
+
+       <div id="social_details"> 
+          <p id="following"> <em class="number"> <%= Following.following(current_user.id).count %>  </em> <br/>
+            <em class="text">following </em>
+          </p>
+          <p id="followers"> <em class="number"> <%= Following.followers(current_user.id).count %> </em> <br/>
+            <em class="text">followers </em>
+          </p>
+       </div>
+
+      <div id="side-links"> 
+        <ul> 
+          <li><a href="#" class="active home"> <i class="fas fa-home"></i>  Home </a> </li>
+          <li> <a href="#"> <i class="fas fa-at"></i> Connect </a> </li>
+          <li> <a href="#"> <span> # </span> Discover </a> </li>
+          <li> <a href="#"> <i class="fas fa-chart-pie"></i> Statistic </a> </li>
+        </ul>
+      </div>
+    </div>  
+
+    <div class="right-main"> 
+    
+    <div class="top-of-right-main">
+      <div id="top-icon-only"> 
+        <div class="logo-icon"> 
+          <a href="/"><span id="logo"><i class="fas fa-comments fa-3x"></i></span></a>
+        </div>
+        <div class="action-icons"> 
+          <span id="non-mobile-icon" class="_icon"> <i class="fas fa-highlighter"></i> </span> 
+          <span id="non-mobile-icon" id="non-mobile-icon" class="_icon"> <i class="fas fa-envelope"></i> </span>
+          <span id="non-mobile-icon" class="_icon"> <i class="fas fa-search"></i>  </span>
+          <span id="non-mobile-icon" class="_icon"> <i class="fas fa-cog"></i> </span>
+          <span id="mobile-icon" class="_icon toggle" > <i id="fa-menu" class="fas fa-bars"></i> </span>
+        </div>
+      </div>
+      <div id="personal-profile-area">
+        <div id="banner"> <%= display_cover(@profile.id, @profile.cover_image) %> </div>
+        <div id="profile-image"> 
+            <div id="profile-image-top"> 
+                <div id="profile-menu-left"> 
+                  <span class="circle<%= @profile.id == current_user.id ? ' hide_button' : nil%>"> 
+                    <%= Following.a_follower?(@profile.id, current_user.id) ?  
+                      (link_to '-', unfollow_path(Following.following_record(@profile.id, current_user.id)), method: :post,
+                      class: "follow_person", title: "unfollow #{@profile.fullname}" ) :
+                      (link_to '+', follow_path(@profile.id), method: :post, class: "follow_person", title: "follow #{@profile.fullname}") 
+                    %> 
+                  </span>
+                </div> 
+                <div id="display-picture"> <%= display_image(@profile.id, @profile.photo) %> </div> 
+                <div id="profile-menu-right"> <span class="circle"> <i class="fas fa-bars"></i> </span> </div>
+            </div>
+            <div id="profile-image-middle"> 
+                <h4> <%= @profile.fullname%> </h4>
+                <p> <%= "@#{@profile.username}" %> </p>
+            </div>
+            <div id="profile-image-bottom">
+                <div id="profile-tweet">
+                    <h4> <%= Opinion.user_opinions(@profile.id).count %> </h4>
+                    <span> Opinions </span>
+                </div>
+                <div id="display-following"> 
+                    <h4> <%= Following.following(@profile.id).count %>  </h4>
+                    <span> Following </span> 
+                </div> 
+                <div id="profile-follower"> 
+                    <h4> <%= Following.followers(@profile.id).count %> </h4>
+                    <span>  <%= Following.followers(@profile.id).count > 1 ? "Followers" : "Follower" %> </span>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div id="top-tab-navigation"> 
+        <ul> 
+          <li> <a href="#" class="active">Opinions</a></li>
+        </ul>
+        <div class="who-to-follow"> 
+          <div>
+            <p> Followed by <%= @followed_by.count.positive? ? pluralize(@followed_by.count, "user") : "NOBODY " %> </p>
+            <span> </span> 
+          </div>
+        </div>
+      </div>
+    </div>  
+
+    <div id="body-of-right-main"> 
+        <div id="central">
+            <%= yield %> 
+        </div>
+        <div id="right"> 
+          <ul class="persons-to-follow"> 
+            <%= render "followedby" %>
+          </ul>
+
+          <p class="popular light-blue"> Popular account  Find friends   </p>
+          
+          <div class="other-right-content"> 
+
+            <div id="trending">
+              <p>Trending </p>
+              <span> <i class="fas fa-cog"></i> </span>
+            </div>
+
+            <ul>
+              <li> #onearmy </li>
+              <li> #endsars </li>
+              <li> #globalism </li>
+              <li> #godthesupermaster </li>
+            </ul>
+
+          </div>
+
+        </div>
+    </div>
+
+    
+    </div>  
+   
+    </div>  
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </body>
+</html>
