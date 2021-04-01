@@ -17,9 +17,6 @@ A user (when logged in) can either only like or dislike an opinion
 ## Main Page
 ![Screenshot Main Page](./app/assets/images/homepage.png)
 
-## User Page
-![Screenshot Profile Page](./app/assets/images/profile_page.png)
-
 
 ## Built With
 
