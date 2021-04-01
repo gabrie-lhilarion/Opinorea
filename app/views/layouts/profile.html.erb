@@ -100,7 +100,7 @@
         <div id="profile-image"> 
             <div id="profile-image-top"> 
                 <div id="profile-menu-left"> 
-                  <span class="circle"> 
+                  <span class="circle<%= @profile.id == current_user.id ? ' hide_button' : nil%>"> 
                     <%= Following.a_follower?(@profile.id, current_user.id) ?  
                       (link_to '-', unfollow_path(Following.following_record(@profile.id, current_user.id)), method: :post,
                       class: "follow_person", title: "unfollow #{@profile.fullname}" ) :
