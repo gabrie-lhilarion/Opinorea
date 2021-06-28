@@ -5,7 +5,6 @@ ruby '2.7.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'hirb'
