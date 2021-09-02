@@ -2,14 +2,172 @@
 <html>
   <head>
     <title>Opinorea</title>
+    <script src="https://kit.fontawesome.com/17579a901f.js" crossorigin="anonymous"></script>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div id="mobile-icon-slide-in"> 
+      <ul class="persons-to-follow"> 
+        <h3> WHO TO FOLLOW </h3>
+        <li> 
+          <div class="round"> </div> 
+          <div class="follower-info"> 
+            <h3> Edo Happiness</h3>
+            <p> Followed by <span>Gabriel Silviera </span>  </p>
+          </div>
+        </li>
+
+          <li> 
+          <div class="round"> </div> 
+          <div  class="follower-info"> 
+            <h3> Edo Happiness</h3>
+            <p> Followed by <span>Gabriel Silviera </span> </p>
+          </div>
+        </li>
+      </ul>
+
+       <ul>
+          <h3>  TRENDING </h3>
+          <li> #onearmy </li>
+          <li> #endsars </li>
+          <li> #globalism </li>
+          <li> #godthesupermaster </li>
+          <li> #onearmy </li>
+          <li> #endsars </li>
+          <li> #globalism </li>
+          <li> #godthesupermaster </li>
+       </ul>
+
+      <ul> 
+        <h5>MAIN MENU</h5>
+        <li>Home </li>
+        <li>Connect </li>
+        <li>Discover </li>
+        <li>Statistic </li>
+      </ul>
+    </div>
+
+    <%= "<div class=\"notice\" id=\"my_notice\"> <p> #{notice} </p> <span class=\"close_notice\"> close </span> </div>".html_safe if notice %>    
+    <div id="wrap"> 
+    <div class="left-aside"> 
+
+       <div id="profile"> 
+          <div>
+            <%= display_image(current_user.id, current_user.photo) %> 
+          </div>
+          <h4> <%= link_to  current_user.fullname, user_path(current_user) %> 
+            </br>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+          </h4> 
+       </div> 
+
+       <div id="social_details"> 
+           <p id="following"> <em class="number"> <%= Following.following(current_user.id).count %>  </em> <br/>
+            <em class="text">following </em>
+          </p>
+          <p id="followers"> <em class="number"> <%= Following.followers(current_user.id).count %> </em> <br/>
+            <em class="text">followers </em>
+          </p>
+       </div>
+
+      <div id="side-links"> 
+        <ul> 
+          <li><a href="#" class="active home"> <i class="fas fa-home"></i>  Home </a> </li>
+          <li> <a href="#"> <i class="fas fa-at"></i> Connect </a> </li>
+          <li> <a href="#"> <span> # </span> Discover </a> </li>
+          <li> <a href="#"> <i class="fas fa-chart-pie"></i> Statistic </a> </li>
+        </ul>
+      </div>
+    </div> <!--end left-aside -->
+
+    <div class="right-main"> 
+
+    <div class="top-of-right-main">
+      <div id="top-icon-only"> 
+        <div class="logo-icon"> 
+         <a href="/"> <span id="logo"><i class="fas fa-comments fa-3x"></i></span> </a>
+        </div>
+        <div class="action-icons"> 
+          <span id="non-mobile-icon" class="_icon"> <i class="fas fa-highlighter"></i> </span> 
+          <span id="non-mobile-icon" id="non-mobile-icon" class="_icon"> <i class="fas fa-envelope"></i> </span>
+          <span id="non-mobile-icon" class="_icon"> <i class="fas fa-search"></i>  </span>
+          <span id="non-mobile-icon" class="_icon"> <i class="fas fa-cog"></i> </span>
+          <span id="mobile-icon" class="_icon toggle" > <i id="fa-menu" class="fas fa-bars"></i> </span>
+        </div>
+      </div>
+
+      <div id="top-tab-navigation"> 
+        <ul> 
+          <li> <a href="#" class="active">Opinions</a></li>
+        </ul>
+        <div class="who-to-follow"> 
+          <div>
+            <p> who to follow </p>
+            <span> <i class="fas fa-retweet"></i>  </span> 
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="body-of-right-main"> 
+        <div id="central">
+            <%= yield %> 
+        </div>
+        <div id="right"> 
+          <ul class="persons-to-follow"> 
+            <%= render "users/tofollow" %>
+          </ul>
+
+          <p class="popular light-blue"> Popular account  Find friends   </p>
+          
+          <div class="other-right-content"> 
+
+            <div id="trending">
+              <p>Trending </p>
+              <span> <i class="fas fa-cog"></i> </span>
+            </div>
+
+            <ul>
+              <li> #onearmy </li>
+              <li> #endsars </li>
+              <li> #globalism </li>
+              <li> #godthesupermaster </li>
+            </ul>
+
+          </div>
+
+        </div>
+    </div>
+
+    
+    </div> 
+   
+    </div>  
+    <div id="myModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal-title"> Modal title </h5>
+            <button type="button" class="close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="clone_wrap"> </div>
+            <p>
+              <%= render 'replies/form' %>
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary close_2" data-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div> 
+
   </body>
 </html>

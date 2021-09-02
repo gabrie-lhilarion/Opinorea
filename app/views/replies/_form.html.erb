@@ -1,0 +1,4 @@
+<%= form_with(url: '/reply-opinion', id: 'ajx_form') do |f| %> 
+<%= f.text_field :content, id: 'reply_content' %> 
+<%= f.submit data: { disable_with: "...wait" },  id: 'submit_form', class: 'btn btn-primary' %>
+<% end %>

@@ -1,0 +1,25 @@
+<div class="sessions_page">
+
+<h2>Log into your account</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    
+    <%= f.email_field :email, placeholder: " enter email", class: "top-raduis" %>
+  </div>
+
+  <div class="field">
+    
+    <%= f.password_field :password, placeholder:  " enter password", class: "down-radius" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Log in", id: 'log_in' %>
+  </div>
+<% end %>
+
+<div class="alternate-action"> 
+<span> Don't have an account?  </span> 
+<%= link_to "Sign up", new_user_registration_path %>
+</div>
+</div>

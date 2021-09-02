@@ -1,0 +1,25 @@
+<% @recentopinion.each do |opinion| %>
+<li> 
+     <div class="for-image" id="opinion_<%= opinion.id %>_image"> <%= display_image(opinion.user.id, opinion.user.photo) %> </div>
+     <div class="recent-follower">
+          <div class="person-time">
+                <h5 id="opinion_<%= opinion.id %>_fullname"> <%= opinion.user.fullname %></h5>  
+                <span class="opionion-time"> <%= opinion.created_at.strftime("%b %d, %I:%M %p") %></span> 
+          </div>
+          <div>  
+               <p>
+                    <span id="opinion_<%= opinion.id %>_comment"> <%= opinion.comment %> </span> 
+                    <span class="reply_now" id="<%= "#{opinion.id},#{current_user.id}" %>" > Reply </span>
+                    
+               </p> 
+               
+               <p class="interactions">  
+                    <span> <i> Replies </i>  <em id="opinion_<%= opinion.id %>_reply_count"> <%= opinion.replies.count %>  </em> </span>
+                    <span> <i> <%= link_to 'Likes', like_path(opinion.id, current_user.id), {method: :post, title: "click to like opinion"}  %> </i>  <em> <%= opinion.likes.count %>  </em> </span>
+                    <span> <i> <%= link_to 'Dislikes', dislike_path(opinion.id, current_user.id), {method: :post, title: "click to dislike opinion"}  %> </i> <em> <%= opinion.dislikes.count %> </em> </span>
+               </p>
+          </div>
+     </div>
+</li>
+
+<% end %>

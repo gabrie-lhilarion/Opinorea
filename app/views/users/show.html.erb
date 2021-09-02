@@ -1,0 +1,11 @@
+<div id="timeline">
+
+<div id="recent-opinions"> 
+    <h4> <i> <%= @recentopinion.count.zero? ? 
+    "#{@profile.fullname} has no opinion yet" :
+     "#{@profile.fullname}'s opinions" %>  </i> </h4>
+    <ul class="opinions-list" id="list_opinions"> 
+        <%= render 'showopinion' %>
+    </ul>
+</div>
+</div>
