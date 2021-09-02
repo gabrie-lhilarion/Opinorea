@@ -299,10 +299,6 @@ a {
     padding-top: 9px;
 }
 
-#display-picture img {
-    border-radius: 50%;
-}
-
 #profile-menu-left { 
     width: 29%;
     display: flex;
